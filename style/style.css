@@ -3,21 +3,26 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 200px;
+    width: 160px;
     padding-top: 20px;
     background-color: #0D7C66;
     transition: width 0.3s;
+    font-size: smaller;
 }
 
-.sidebar.nav-link {
+.sidebar .nav-link {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 10px 20px;
+    gap: 5px;
+    padding: 0px 20px;
     color: #fff;
 }
 
-.sidebar.description {
+nav a {
+    height: calc(100vh / 16);
+}
+
+.sidebar .description {
     font-size: 14px;
 }
 
@@ -35,13 +40,17 @@
     padding-left: 6%;
 }
 
-.main-content {
-    margin-left: 200px;
-    padding: 20px;
-    overflow: hidden;
+.sub-menu {
+    width: 100%;
 }
 
-@media(max-width: 480px) {
+.main-content {
+    margin-left: 160px;
+    overflow: hidden;
+    position: static;
+}
+
+@media (max-width: 650px) {
     .sidebar {
         width: 60px;
     }
@@ -60,12 +69,119 @@
 }
 
 main section {
-    height: 100vh;
+    max-height: 100vh;
 }
 
-#log-out {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
+.field-div-1 {
+    height: 20vh;
+    align-items: center;
 }
 
+.field-div-1 {
+    font-size: large;
+    color: green;
+}
+
+.field-div-2 {
+    height: 20vh;
+    align-items: center;
+}
+
+.field-div-3 {
+    height: 60vh;
+}
+
+.btn-add-a-field {
+    width: 50%;
+    font-size: smaller;
+}
+
+.txt-field-search {
+    width: 50%;
+    height: 35px;
+}
+
+.btn-search {
+    font-size: smaller;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+@media (max-width: 650px) {
+    .table-css th,
+    .table-css td {
+        white-space: nowrap;
+    }
+
+    .custom-color-crop th,
+    .custom-color-crop td {
+        white-space: nowrap;
+    }
+
+    .custom-color-staff th,
+    .custom-color-staff td {
+        white-space: nowrap;
+    }
+
+    .field-div-1 div span {
+        font-size: medium;
+    }
+}
+
+.table-css thead th {
+    background-color: #0D7C66;
+    color: white;
+    font-size: smaller;
+}
+
+.img-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faculty-glyphic-regular {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@media (max-width: 650px) {
+    .img-logo {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .field-div-1 div span {
+        font-size: medium;
+    }
+
+    .btn-add-a-field {
+        width: 60%;
+    }
+}
+
+.custom-color-crop {
+    color: #df9a2b;
+}
+
+.custom-color-crop th {
+    background-color: #df9a2b;
+    color: white;
+    font-size: smaller;
+}
+
+.custom-color-staff {
+    color: #b93e65;
+}
+
+.custom-color-staff th {
+    background-color: #b93e65;
+    color: white;
+    font-size: x-small;
+}
