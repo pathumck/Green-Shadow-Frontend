@@ -125,6 +125,16 @@ main section {
         white-space: nowrap;
     }
 
+    .custom-color-vehicle th,
+    .custom-color-vehicle td {
+        white-space: nowrap;
+    }
+
+    .custom-color-equipment th,
+    .custom-color-equipment td {
+        white-space: nowrap;
+    }
+
     .field-div-1 div span {
         font-size: medium;
     }
@@ -137,7 +147,7 @@ main section {
 }
 
 .img-logo {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -184,4 +194,24 @@ main section {
     background-color: #b93e65;
     color: white;
     font-size: x-small;
+}
+
+.custom-color-vehicle {
+    color: #8b5e12;
+}
+
+.custom-color-vehicle th {
+    background-color: #8b5e12;
+    color: white;
+    font-size: smaller;
+}
+
+.custom-color-equipment {
+    color: #986aad;
+}
+
+.custom-color-equipment th {
+    background-color: #986aad;
+    color: white;
+    font-size: smaller;
 }
