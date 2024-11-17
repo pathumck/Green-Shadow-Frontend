@@ -50,7 +50,7 @@
                             <img src="/icons/field_crop.png" alt="field_crop_image" width="20" height="20">
                         </i>
                     </span>
-                    <span class="description">Field's Crop</span>
+                    <span class="description">Field's Crops</span>
                 </a>
              </div>
 
@@ -365,7 +365,7 @@
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
-                        <span class="span-text faculty-glyphic-regular custom-color-equipment">EQUIPMENTS</span>
+                        <span class="faculty-glyphic-regular custom-color-equipment">EQUIPMENTS</span>
                     </div>
                     <div class="col">
                         <img src="/icons/green shadow.png" alt="green_shadow_image" class="img-fluid img-logo">
@@ -409,7 +409,180 @@
                 </div>
             </div>  
         </section>
-      </main>
+
+        <!-- Field's Crop Section -->
+        <section id="sec-field-crops">
+            <div class="container">
+                <div class="row field-div-1">
+                    <div class="col">
+                        <span class="font-size span-text faculty-glyphic-regular custom-color-field-crop small-text">
+                            FIELD'S CROPS
+                        </span>
+                    </div>
+                    <div class="col">
+                        <img src="/icons/green shadow.png" alt="green_shadow_image" class="img-fluid img-logo">
+                    </div>
+                </div>
+        
+                <div class="row field-div-4">
+                    <!-- Column 1 - Select a Field -->
+                    <div class="col-12 col-md-3">
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold small-text">Select a Field</span>
+                            <form>
+                                <!-- Field Code Selection -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field1" class="form-label small-label">Field Code :</label>
+                                            <select class="form-select form-select-sm" id="field1">
+                                                <option selected disabled>Select a field</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field2" class="form-label small-label">Field Code :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Name and Location -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field3" class="form-label small-label">Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field4" class="form-label small-label">Location :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Images -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field5" class="form-label small-label">Image One :</label>
+                                            <img id="field5-image" src="" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field6" class="form-label small-label">Image Two :</label>
+                                            <img id="field6-image" src="" alt="Field 6 Image" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <!-- Column 2 - Add a Crop -->
+                    <div class="col-12 col-md-3">
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold small-text">Add a crop to selected field</span>
+                            <form>
+                                <!-- Select Field -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-12">
+                                        <div class="field-container">
+                                            <label for="dropdown1" class="form-label small-label">Select Field :</label>
+                                            <select class="form-select form-select-sm" id="dropdown1">
+                                                <option selected disabled>Select an option</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Crop Details -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="common-name" class="form-label small-label">Common Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="common-name"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="scientific-name" class="form-label small-label">Scientific Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="scientific-name"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="category" class="form-label small-label">Category :</label>
+                                            <label class="form-control fixed-height-label small-label" id="category"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="season" class="form-label small-label">Season :</label>
+                                            <label class="form-control fixed-height-label small-label" id="season"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Image and Button -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="image-display" class="form-label small-label">Image :</label>
+                                            <img id="field6-image" src="" alt="Field 6 Image" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center align-items-center">
+                                        <div class="field-container">
+                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <!-- Column 3 - Field Crops Table -->
+                    <div class="col-12 col-md-6">
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold small-text">Field Crops Table</span>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-css custom-color-field-crop">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Field Code</th>
+                                            <th scope="col">Crop Code</th>
+                                            <th scope="col">Common Name</th>
+                                            <th scope="col">Scientific Name</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Season</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Image</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="imageTableBody">
+                                        <!-- Table rows go here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

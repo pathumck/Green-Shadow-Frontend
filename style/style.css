@@ -50,7 +50,7 @@ nav a {
     position: static;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1070px) {
     .sidebar {
         width: 60px;
     }
@@ -69,7 +69,7 @@ nav a {
 }
 
 main section {
-    max-height: 100vh;
+    max-height: 200vh;
 }
 
 .field-div-1 {
@@ -109,7 +109,7 @@ main section {
     overflow-x: auto;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
     .table-css th,
     .table-css td {
         white-space: nowrap;
@@ -160,7 +160,7 @@ main section {
     font-style: normal;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
     .img-logo {
         max-width: 80%;
         height: auto;
@@ -173,6 +173,12 @@ main section {
 
     .btn-add-a-field {
         width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    #sec-field-crops {
+        height: 190vh !important;
     }
 }
 
@@ -196,6 +202,12 @@ main section {
     font-size: x-small;
 }
 
+.custom-color-field-crop th {
+    background: rgba(13, 124, 102, 0.7) !important;
+    color: white;
+    font-size: x-small !important;
+}
+
 .custom-color-vehicle {
     color: #8b5e12;
 }
@@ -214,4 +226,77 @@ main section {
     background-color: #986aad;
     color: white;
     font-size: smaller;
+}
+
+.field-div-4 {
+    height: 80vh;
+}
+
+.bordered-div-1 {
+    background: rgba(13, 124, 102, 0.7);
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
+.field-container {
+    margin: 5;
+    padding-top: 0px;
+    padding: 5px; 
+    border-radius: 5px; 
+}
+
+.field-container img {
+    width: 100x; 
+    height: 80px; 
+    object-fit: cover;
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    display: block; 
+    margin: auto; 
+}
+
+.field-container label.form-label {
+    color: #ffffff; 
+    font-weight: 500; 
+    font-size: 16px; 
+    margin-bottom: 5px; 
+}
+
+.fixed-height-label {
+    min-height: 28px; 
+    display: flex;
+    align-items: center;
+}
+
+#sec-field-crops {
+    height: 100vh;
+}
+
+.small-text {
+    font-size: 0.875rem; 
+}
+
+.small-label {
+    font-size: 0.8rem !important; 
+}
+
+.form-select-sm {
+    font-size: 0.75rem; 
+}
+
+.btn-sm {
+    font-size: 0.75rem;
+}
+
+.table-sm {
+    font-size: 0.75rem;
+}
+
+.custom-label {
+    font-size: 0.9rem;
+}
+
+.font-size {
+    font-size: large;
 }
