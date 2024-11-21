@@ -19,7 +19,7 @@
 }
 
 nav a {
-    height: calc(100vh / 16);
+    height: calc(40px);
 }
 
 .sidebar .description {
@@ -92,7 +92,7 @@ main section {
 }
 
 .btn-add-a-field {
-    width: 50%;
+    width: 40%;
     font-size: smaller;
 }
 
@@ -203,7 +203,7 @@ main section {
 }
 
 .custom-color-field-crop th {
-    background: rgba(13, 124, 102, 0.7) !important;
+    background: rgba(13, 124, 102, 0) !important;
     color: white;
     font-size: x-small !important;
 }
@@ -273,10 +273,6 @@ main section {
     height: 100vh;
 }
 
-.small-text {
-    font-size: 0.875rem; 
-}
-
 .small-label {
     font-size: 0.8rem !important; 
 }
@@ -299,4 +295,21 @@ main section {
 
 .font-size {
     font-size: large;
+}
+
+.bordered-div-2 {
+    background: rgba(185, 62, 101, 0.7);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.bordered-div-2 th {
+    background: rgba(185, 62, 101, 0) !important;
+}
+
+.spans-text {
+    color: white;
+    font-size: small;
+    font-weight: bold;
+    margin: auto;
 }
