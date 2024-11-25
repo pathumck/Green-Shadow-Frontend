@@ -69,7 +69,7 @@ nav a {
 }
 
 main section {
-    max-height: 200vh;
+    max-height: 400vh;
 }
 
 .field-div-1 {
@@ -229,7 +229,7 @@ main section {
 }
 
 .field-div-4 {
-    height: 80vh;
+    height: fit-content;
 }
 
 .bordered-div-1 {

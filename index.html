@@ -756,6 +756,7 @@
                     </div>
                 </div>
         
+                <!-- Add Fields -->
                 <div class="row field-div-4">
                     <!-- Add field to log form -->
                     <div class="col-12 col-md-4">
@@ -853,8 +854,222 @@
                         </div>      
                     </div>
                 </div>
+
+                <!-- Add Crops -->
+                <div class="row field-div-4">
+                    <!-- Add crop to log form -->
+                    <div class="col-12 col-md-4">
+                        <!-- Form Section -->
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold spans-text">Add a crop</span>
+                            <div class="row">
+                                <div class="col-4"></div>
+                            </div>
+                            <form>
+                                <!-- Crop Code Selection -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field1" class="form-label small-label">Crop Code :</label>
+                                            <select class="form-select form-select-sm" id="field1">
+                                                <option selected disabled>Select a crop</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field2" class="form-label small-label">Crop Code :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Names -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field3" class="form-label small-label">Common Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field4" class="form-label small-label">Scientific Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field3" class="form-label small-label">Category :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field4" class="form-label small-label">Season :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Images -->
+                                <div class="row g-0 mb-1 justify-content-center">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field5" class="form-label small-label">Image :</label>
+                                            <img id="field5-image" src="" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-1">
+                                    <div class="col d-flex justify-content-center align-items-center">
+                                        <div class="field-container">
+                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <!-- Log's crops table -->
+                    <div class="col-12 col-md-8">
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold spans-text">Log crops</span>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-css custom-color-field-crop">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Crop Code</th>
+                                            <th scope="col">Common Name</th>
+                                            <th scope="col">Sceintific Name</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Season</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="imageTableBody">
+                                        <tr></tr>
+                                        <!-- Table rows go here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- Add Staff -->
+                <div class="row field-div-4">
+                    <!-- Add staff to log form -->
+                    <div class="col-12 col-md-4">
+                        <!-- Form Section -->
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold spans-text">Add a staff</span>
+                            <div class="row">
+                                <div class="col-4"></div>
+                            </div>
+                            <form>
+                                <!-- Staff Id Selection -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field1" class="form-label small-label">Staff Id :</label>
+                                            <select class="form-select form-select-sm" id="field1">
+                                                <option selected disabled>Select a staff</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field2" class="form-label small-label">Staff Id :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Name -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field3" class="form-label small-label">First Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field4" class="form-label small-label">Last Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Designation and Role -->
+                                <div class="row g-0 mb-1">
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field3" class="form-label small-label">Designation :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field-container">
+                                            <label for="field4" class="form-label small-label">Role :</label>
+                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                
+                                <div class="row g-0 mb-1">
+                                    <div class="col d-flex justify-content-center align-items-center">
+                                        <div class="field-container">
+                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <!-- Log's staff table -->
+                    <div class="col-12 col-md-8">
+                        <div class="bordered-div-1">
+                            <span class="text-center d-block font-weight-bold spans-text">Log staff</span>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-css custom-color-field-crop">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Staff Id</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Designation</th>
+                                            <th scope="col">Role</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="imageTableBody">
+                                        <tr></tr>
+                                        <!-- Table rows go here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>      
+                    </div>
+                </div>          
             </div>
         </section>
+
+
         
 </main>
 
