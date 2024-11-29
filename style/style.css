@@ -333,3 +333,7 @@ main section {
     line-height: 30px;
     padding: 0 20px; 
 }
+
+.nav-link.active {
+    background-color: #41B3A2;
+}

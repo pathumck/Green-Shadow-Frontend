@@ -86,4 +86,7 @@ $('#nav_equipment').on('click', function() {
   $('#sec_field').hide();
 });
 
-
+$(".nav-link").on("click",function() {
+  $(".nav-link").removeClass("active");
+  $(this).addClass("active");
+});
