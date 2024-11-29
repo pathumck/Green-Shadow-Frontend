@@ -36,7 +36,7 @@
              </a>
              <!-- Sub Menu 1 -->
              <div class="sub-menu collapse" id="submenu1">
-                <a href="#" class="nav-link" style="padding-top: 4px;">
+                <a id="nav_field_details" href="#" class="nav-link" style="padding-top: 4px;">
                     <span class="icon">
                         <i>
                             <img src="/icons/field_crop.png" alt="field_crop_image" width="20" height="20">
@@ -44,7 +44,7 @@
                     </span>
                     <span class="description">Field Details</span>
                 </a>
-                <a href="#" class="nav-link" style="padding-top: 4px;">
+                <a id="nav_field_crops" href="#" class="nav-link" style="padding-top: 4px;">
                     <span class="icon">
                         <i>
                             <img src="/icons/field_crop.png" alt="field_crop_image" width="20" height="20">
@@ -52,7 +52,7 @@
                     </span>
                     <span class="description">Field's Crops</span>
                 </a>
-                <a href="#" class="nav-link" style="padding-top: 4px;">
+                <a id="nav_field_staff" href="#" class="nav-link" style="padding-top: 4px;">
                     <span class="icon">
                         <i>
                             <img src="/icons/field_crop.png" alt="field_staff_image" width="20" height="20">
@@ -63,7 +63,7 @@
              </div>
 
              <!-- Crop -->
-            <a href="#" class="nav-link" style="padding-top: 4px;">
+            <a id="nav_crops" href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
                     <i>
                         <img src="/icons/crop.png" alt="crop_image" width="20" height="20">
@@ -72,7 +72,7 @@
                 </span>
             </a>
 
-            <a href="#" class="nav-link" style="padding-top: 4px;">
+            <a id="nav_staff" href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
                     <i>
                         <img src="/icons/staff.png" alt="staff_image" width="20" height="20">
@@ -92,7 +92,7 @@
              </a>
              <!-- Sub Menu 3 -->
              <div class="sub-menu collapse" id="submenu3">
-                <a href="#" class="nav-link" style="padding-top: 4px;">
+                <a id="nav_log" href="#" class="nav-link" style="padding-top: 4px;">
                     <span class="icon">
                         <i>
                             <img src="/icons/log_details.png" alt="log_details_image" width="20" height="20">
@@ -111,7 +111,7 @@
              </div>
 
              <!-- Vehicle -->
-            <a href="#" class="nav-link" style="padding-top: 4px;">
+            <a id="nav_vehicle" href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
                     <i>
                         <img src="/icons/vehicle.png" alt="vehicle_image" width="20" height="20">
@@ -121,7 +121,7 @@
             </a>
 
              <!-- Equipments -->
-             <a href="#" class="nav-link" style="padding-top: 4px;">
+             <a id="nav_equipment" href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
                     <i>
                         <img src="/icons/equipment.png" alt="equipment_image" width="20" height="20">
@@ -146,7 +146,7 @@
       <main class="main-content">
 
         <!-- Field Section -->
-        <section>
+        <section id="sec_field">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -159,7 +159,7 @@
                 <div class="row field-div-2">
                     <!-- Add & Search Field -->
                     <div class="col-5">
-                        <button type="button" class="btn btn-success btn-add-a-field">Add a field</button>
+                        <button id="btn_add_a_field" type="button" class="btn btn-success btn-add-a-field">Add a field</button>
                     </div>
                     <div class="col-7">
                         <div class="input-group">
@@ -195,7 +195,7 @@
         </section>
 
         <!-- Crop Section -->
-        <section>
+        <section id="sec_crop">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -244,7 +244,7 @@
         </section>
 
         <!-- Staff Section -->
-        <section>
+        <section id="sec_staff">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -299,7 +299,7 @@
         </section>
 
         <!-- Vehicle Section -->
-        <section>
+        <section id="sec_vehicle">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -349,7 +349,7 @@
         </section>
 
         <!-- Equipment Section -->
-        <section>
+        <section id="sec_equipment">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -399,7 +399,7 @@
         </section>
 
         <!-- Field's Crop Section -->
-        <section id="sec-field-crops">
+        <section id="sec_field_crops" class="sec-field-crops">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -572,7 +572,7 @@
         </section>
 
         <!-- Field's Staff Section -->
-        <section id="sec-field-crops">
+        <section id="sec_field_staff" class="sec-field-crops">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -743,7 +743,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="sec_log">
             <div class="container">
                 <div class="row field-div-1">
                     <div class="col">
@@ -1118,5 +1118,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/script/jquery-3.7.1.min.js"></script>
+    <script src="/script/script.js"></script>
 </body>
 </html>
