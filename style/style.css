@@ -319,3 +319,18 @@ main section {
     font-size: medium;
     font-weight: bold;
 }
+
+#t-area-observation {
+    width: 100%; 
+    height: auto;
+    min-height: 100px; 
+    resize: none;
+}
+
+.custom-btn {
+    font-size: medium;
+    height: 50px; 
+    line-height: 30px;
+    padding: 0 20px; 
+}
+add
