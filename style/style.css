@@ -337,3 +337,22 @@ main section {
 .nav-link.active {
     background-color: #41B3A2;
 }
+
+.scrollable-table {
+    max-height: 400px;
+    overflow-y: auto;
+    height: 55vh;
+}
+
+.table-header-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.image-container {
+    max-width: 100px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }

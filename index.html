@@ -232,6 +232,80 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Field Details Update Modal -->
+                    <div class="modal fade" id="modal_field_update" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="update_dataModalLabel">Update a field</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="dataForm_update">
+                                        <!-- Field Code -->
+                                        <div class="row mb-3">
+                                            <div class="col-2">
+                                                <label for="code_model_field_update" class="">Field Code :</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label id="code_model_field_update"></label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Name and Location -->
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <label for="name_model_field_update" class="form-label">Name:</label>
+                                                <input type="text" class="form-control" id="name_model_field_update" placeholder="Enter Name">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="location_model_field_update" class="form-label">Location:</label>
+                                                <input type="text" class="form-control" id="location_model_field_update" placeholder="Enter Location">
+                                            </div>
+                                        </div>
+
+                                        <!-- Size -->
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <label for="size_model_field_update" class="form-label">Size:</label>
+                                                <input type="text" class="form-control" id="size_model_field_update" placeholder="Enter Size">
+                                            </div>
+                                        </div>
+
+                                        <!-- Image One -->
+                                        <div class="row mb-3 align-items-center">
+                                            <div class="col-6">
+                                                <label for="imageOne_model_field_update" class="form-label">Image One:</label>
+                                                <input type="file" class="form-control" id="imageOne_model_field_update" accept="image/*" onchange="previewImage(this, '#imageOnePreview_model_field_update')">
+                                                <input type="hidden" id="existingImage1" name="existingImage">
+                                            </div>
+                                            <div class="col-6">
+                                                <img id="imageOnePreview_model_field_update" class="img-thumbnail mt-2" style="display:none; max-height: 150px;">
+                                            </div>
+                                        </div>
+
+                                        <!-- Image Two -->
+                                        <div class="row mb-3 align-items-center">
+                                            <div class="col-6">
+                                                <label for="imageTwo_model_field_update" class="form-label">Image Two:</label>
+                                                <input type="file" class="form-control" id="imageTwo_model_field_update" accept="image/*" onchange="previewImage(this, '#imageTwoPreview_model_field_update')">
+                                            </div>
+                                            <div class="col-6">
+                                                <img id="imageTwoPreview_model_field_update" class="img-thumbnail mt-2" style="display:none; max-height: 150px;">
+                                                <input type="hidden" id="existingImage2" name="existingImage">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button id="btn_update_field" type="submit" class="btn btn-success">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
     
 
                     <div class="col-7">
@@ -244,9 +318,9 @@
                 <!-- Field Table -->
                 <div class="row field-div-3">
                     <div class="col">
-                        <div class="table-responsive">
+                        <div class="table-responsive scrollable-table">
                             <table class="table table-striped table-css">
-                                <thead>
+                                <thead class="table-header-fixed">
                                     <tr>
                                         <th scope="col">Field Code</th>
                                         <th scope="col">Name</th>
@@ -254,10 +328,11 @@
                                         <th scope="col">Size</th>
                                         <th scope="col">Image One</th>
                                         <th scope="col">Image Two</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody class="imageTableBody">
+                                <tbody id="field_details_Table_Body" class="imageTableBody">
                                     <!-- Table rows go here -->
                                 </tbody>
                             </table>
