@@ -10,6 +10,7 @@ function loadStaffIdToModel() {
     success: function (data) {
       $('#id_modal_staff').text(data.data);
     },
+
     error: function (error) {
       alert(error.responseText);
     }
@@ -60,6 +61,7 @@ $('#btn_save_staff').click(function() {
       $('#modal_staff').modal('hide');
       loadStaffIdToModel();
       loadStaffDetailsTable();
+      loadStaffIdsToVehicleModel();
     },
     error: function (error) {
       alert(error.responseText);
