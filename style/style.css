@@ -354,5 +354,4 @@ main section {
     max-width: 100px;
     height: auto;
     object-fit: cover;
-    transition: transform 0.2s ease;
-  }
+}
