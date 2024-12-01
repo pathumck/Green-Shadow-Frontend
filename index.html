@@ -356,7 +356,7 @@
                 <div class="row field-div-2">
                     <!-- Add & Search Crop -->
                     <div class="col-5">
-                        <button type="button" class="btn btn-success btn-add-a-field">Add a crop</button>
+                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#model_crop">Add a crop</button>
                     </div>
                     <div class="col-7">
                         <div class="input-group">
@@ -364,7 +364,85 @@
                             <button type="button" class="btn btn-secondary btn-search">Search</button>
                         </div>
                     </div>
+
+                    <!-- Add a crop model -->
+                    <div class="modal fade" id="model_crop" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Add a Crop</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="cropForm">
+                                        <!-- Crop Code -->
+                                        <div class="row mb-3">
+                                            <div class="col-2">
+                                                <label for="code_modal_crop" class="form-label">Crop Code:</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label id="code_modal_crop"></label>
+                                            </div>
+                                        </div>
+                    
+                                        <!-- Common Name and Scientific Name -->
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <label for="commonName_modal_crop" class="form-label">Common Name:</label>
+                                                <input type="text" class="form-control" id="commonName_modal_crop" placeholder="Enter Common Name">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="scientificName_modal_crop" class="form-label">Scientific Name:</label>
+                                                <input type="text" class="form-control" id="scientificName_modal_crop" placeholder="Enter Scientific Name">
+                                            </div>
+                                        </div>
+                    
+                                        <div class="row mb-3">
+                                            <!-- Category -->
+                                            <div class="col-6">
+                                                <label for="category_modal_crop" class="form-label">Category:</label>
+                                                <select class="form-select" id="category_modal_crop">
+                                                    <option value="" selected disabled>Select Category</option>
+                                                    <option value="Vegetable">Vegetable</option>
+                                                    <option value="Fruit">Fruit</option>
+                                                    <option value="Grain">Grain</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <!-- Season -->
+                                            <div class="col-6">
+                                                <label for="season_modal_crop" class="form-label">Season:</label>
+                                                <select class="form-select" id="season_modal_crop">
+                                                    <option value="" selected disabled>Select Season</option>
+                                                    <option>Yala</option>
+                                                    <option>Maha</option>
+                                                    <option>Year-round</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                                        <!-- Image -->
+                                        <div class="row mb-3 align-items-center">
+                                            <div class="col-6">
+                                                <label for="image_modal_crop" class="form-label">Upload Image:</label>
+                                                <input type="file" class="form-control" id="image_modal_crop" accept="image/*" onchange="previewImage(this, '#imagePreview_modal_crop')">
+                                            </div>
+                                            <div class="col-6">
+                                                <img id="imagePreview_modal_crop" class="img-thumbnail mt-2" style="display:none; max-height: 150px;">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button id="btn_save_crop" type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Crop Table -->
                 <div class="row field-div-3">
                     <div class="col">
@@ -1269,5 +1347,6 @@
     <script src="/script/jquery-3.7.1.min.js"></script>
     <script src="/script/script.js"></script>
     <script src="/controllers/field_details_controller.js"></script>
+    <script src="/controllers/crop_controller.js"></script>
 </body>
 </html>
