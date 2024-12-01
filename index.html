@@ -563,7 +563,7 @@
                 <div class="row field-div-2">
                     <!-- Add & Search Staff -->
                     <div class="col-5">
-                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#staffModal">Add a staff</button>
+                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#modal_staff">Add a staff</button>
                     </div>
                     <div class="col-7">
                         <div class="input-group">
@@ -571,7 +571,7 @@
                             <button type="button" class="btn btn-secondary btn-search">Search</button>
 
                             <!--Add Staff Modal -->
-                            <div class="modal fade" id="staffModal" tabindex="-1" aria-labelledby="staffModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="modal_staff" tabindex="-1" aria-labelledby="staffModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -606,19 +606,38 @@
                                                
                                                 <div class="row">
                                                     <!-- Joined Date -->
-                                                    <div class="col mb-3">
+                                                    <div class="col-4 mb-3">
                                                         <label for="joinedDate_modal_staff" class="form-label">Joined Date</label>
                                                         <input type="date" class="form-control" id="joinedDate_modal_staff">
                                                     </div>
 
+                                                    <!-- Birth Date -->
+                                                    <div class="col-4 mb-3">
+                                                        <label for="birthDate_modal_staff" class="form-label">Birth Date</label>
+                                                        <input type="date" class="form-control" id="birthDate_modal_staff">
+                                                    </div>
+
                                                     <!-- Gender -->
-                                                    <div class="col mb-3">
+                                                    <div class="col-4 mb-3">
                                                         <label for="gender_modal_staff" class="form-label">Gender</label>
                                                         <select class="form-select" id="gender_modal_staff">
-                                                            <option selected disabled>Select Gender</option>
+                                                            <option value="" selected disabled>Select Gender</option>
                                                             <option>Male</option>
                                                             <option>Female</option>
                                                         </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <!-- phone -->
+                                                    <div class="col-6 mb-3">
+                                                        <label for="phone_modal_staff" class="form-label">Phone</label>
+                                                        <input type="text" class="form-control" id="phone_modal_staff" placeholder="Enter phone">
+                                                    </div>
+                                                    <!-- email -->
+                                                    <div class="col-6 mb-3">
+                                                        <label for="email_modal_staff" class="form-label">Email</label>
+                                                        <input type="text" class="form-control" id="email_modal_staff" placeholder="Enter email">
                                                     </div>
                                                 </div>
                                                
@@ -627,7 +646,7 @@
                                                     <div class="col mb-3">
                                                         <label for="designation_modal_staff" class="form-label">Designation</label>
                                                         <select class="form-select" id="designation_modal_staff">
-                                                            <option selected disabled>Select Designation</option>
+                                                            <option value="" selected disabled>Select Designation</option>
                                                             <option>Manager</option>
                                                             <option>Senior Assistant Manager</option>
                                                             <option>Assistant Manager</option>
@@ -647,11 +666,11 @@
                                                     <div class="col mb-3">
                                                         <label for="role_modal_staff" class="form-label">Role</label>
                                                         <select class="form-select" id="role_modal_staff">
-                                                            <option selected disabled>Select Role</option>
-                                                            <option>Manager</option>
-                                                            <option>Administrative</option>
-                                                            <option>Scientist</option>
-                                                            <option>Other</option>
+                                                            <option value="" selected disabled>Select Role</option>
+                                                            <option>MANAGER</option>
+                                                            <option>ADMINISTRATIVE</option>
+                                                            <option>SCIENTIST</option>
+                                                            <option>OTHER</option>
                                                         </select>
                                                     </div>
                                                 </div>
