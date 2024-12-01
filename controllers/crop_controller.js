@@ -81,9 +81,32 @@ function loadCropDetailsTable() {
         `;
         tableBody.append(row);
       });
+
+      $('.btn-delete').on('click', function() {
+        const cropCode = $(this).data('crop-code');
+        deleteCrop(cropCode);
+      });
     },
     error: function(error) {
       alert(error.responseText);
     }
   });
+}
+
+function deleteCrop(cropCode) {
+  const confirmed = confirm('Are you sure you want to delete this crop? : ' + cropCode);
+  if (confirmed) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/crop/' + cropCode,
+      type: 'DELETE',
+      success: function(data) {
+        loadCropDetailsTable();
+        loadCropCodeToModel();
+        alert(cropCode + " : Crop deleted successfully!");
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
 }
