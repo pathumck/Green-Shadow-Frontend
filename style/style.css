@@ -199,7 +199,7 @@ main section {
 .custom-color-staff th {
     background-color: #b93e65;
     color: white;
-    font-size: x-small;
+    font-size: smaller;
 }
 
 .custom-color-field-crop th {

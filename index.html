@@ -714,15 +714,18 @@
                 <!-- Staff Table -->
                 <div class="row field-div-3">
                     <div class="col">
-                        <div class="table-responsive">
+                        <div class="table-responsive scrollable-table">
                             <table class="table table-striped custom-color-staff">
-                                <thead>
+                                <thead class="table-header-fixed">
                                     <tr>
                                         <th scope="col">Staff Id</th>
                                         <th scope="col">First Name</th>
                                         <th scope="col">Last Name</th>
                                         <th scope="col">Joined Date</th>
+                                        <th scope="col">Birth Date</th>
                                         <th scope="col">Gender</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Email</th>
                                         <th scope="col">Designation</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Address L1</th>
@@ -730,10 +733,11 @@
                                         <th scope="col">Address L3</th>
                                         <th scope="col">Address L4</th>
                                         <th scope="col">Address L5</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody class="imageTableBody">
+                                <tbody id="staff_details_table_body">
                                     <!-- Table rows go here -->
                                 </tbody>
                             </table>
