@@ -443,6 +443,85 @@
                     </div>
                 </div>
 
+                <!-- Update a crop model -->
+                <div class="modal fade" id="modal_crop_update" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Update a Crop</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="cropFormupdate">
+                                    <!-- Crop Code -->
+                                    <div class="row mb-3">
+                                        <div class="col-2">
+                                            <label for="code_modal_crop_update" class="form-label">Crop Code:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <label id="code_modal_crop_update"></label>
+                                        </div>
+                                    </div>
+                
+                                    <!-- Common Name and Scientific Name -->
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <label for="commonName_modal_crop_update" class="form-label">Common Name:</label>
+                                            <input type="text" class="form-control" id="commonName_modal_crop_update" placeholder="Enter Common Name">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="scientificName_modal_crop_update" class="form-label">Scientific Name:</label>
+                                            <input type="text" class="form-control" id="scientificName_modal_crop_update" placeholder="Enter Scientific Name">
+                                        </div>
+                                    </div>
+                
+                                    <div class="row mb-3">
+                                        <!-- Category -->
+                                        <div class="col-6">
+                                            <label for="category_modal_crop_update" class="form-label">Category:</label>
+                                            <select class="form-select" id="category_modal_crop_update">
+                                                <option value="" selected disabled>Select Category</option>
+                                                <option value="Vegetable">Vegetable</option>
+                                                <option value="Fruit">Fruit</option>
+                                                <option value="Grain">Grain</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <!-- Season -->
+                                        <div class="col-6">
+                                            <label for="season_modal_crop_update" class="form-label">Season:</label>
+                                            <select class="form-select" id="season_modal_crop_update">
+                                                <option value="" selected disabled>Select Season</option>
+                                                <option>Yala</option>
+                                                <option>Maha</option>
+                                                <option>Year-round</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                
+                                    <!-- Image -->
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-6">
+                                            <label for="image_modal_crop_update" class="form-label">Upload Image:</label>
+                                            <input type="file" class="form-control" id="image_modal_crop_update" accept="image/*" onchange="previewImage(this, '#imagePreview_modal_crop_update')">
+                                            <input type="hidden" id="existing_image_crop" name="existingImage">
+                                        </div>
+                                        <div class="col-6">
+                                            <img id="imagePreview_modal_crop_update" class="img-thumbnail mt-2" style="display:none; max-height: 150px;">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="btn_update_crop" type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
                 <!-- Crop Table -->
                 <div class="row field-div-3">
                     <div class="col">
@@ -467,7 +546,7 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </section>
 
         <!-- Staff Section -->
