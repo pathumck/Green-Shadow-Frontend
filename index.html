@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button id="btn_save_field" type="submit" class="btn btn-success">Save</button>
+                                    <button id="btn_save_field" type="button" class="btn btn-success">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -300,7 +300,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button id="btn_update_field" type="submit" class="btn btn-success">Update</button>
+                                    <button id="btn_update_field" type="button" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -436,7 +436,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button id="btn_save_crop" type="submit" class="btn btn-success">Save</button>
+                                    <button id="btn_save_crop" type="button" class="btn btn-success">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -515,7 +515,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button id="btn_update_crop" type="submit" class="btn btn-success">Update</button>
+                                <button id="btn_update_crop" type="button" class="btn btn-success">Update</button>
                             </div>
                         </div>
                     </div>
@@ -702,7 +702,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button id="btn_save_staff" type="submit" class="btn btn-primary" form="staffForm">Save</button>
+                                            <button id="btn_save_staff" type="button" class="btn btn-primary" form="staffForm">Save</button>
                                         </div>
                                     </div>
                                 </div>
@@ -840,7 +840,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button id="btn_update_staff" type="submit" class="btn btn-primary" form="staffForm_update">Update</button>
+                                            <button id="btn_update_staff" type="button" class="btn btn-primary" form="staffForm_update">Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -899,7 +899,7 @@
                 <div class="row field-div-2">
                     <!-- Add & Search Vehicle -->
                     <div class="col-5">
-                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#vehicleModal">Add a Vehicle</button>
+                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#vehicle_modal">Add a Vehicle</button>
                     </div>
                     <div class="col-7">
                         <div class="input-group">
@@ -910,7 +910,7 @@
                 </div>
 
                 <!-- Add Vehicle Modal -->
-                <div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="vehicle_modal" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -988,9 +988,7 @@
                                         <!-- Staff ID -->
                                         <div class="col mb-3">
                                             <label for="staffId_modal_vehicle" class="form-label">Staff ID</label>
-                                            <select class="form-select" id="staffId_modal_vehicle">
-                                                
-                                            </select>
+                                            <select class="form-select" id="staffId_modal_vehicle"></select>
                                         </div>
                                     </div>
                                     
@@ -998,14 +996,12 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button id="btn_save_vehicle" type="submit" class="btn btn-primary" form="vehicleForm">Save</button>
+                                <button id="btn_save_vehicle" type="button" class="btn btn-primary" form="vehicleForm">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
             
-
-
                 <!-- Vehicle Table -->
                 <div class="row field-div-3">
                     <div class="col">

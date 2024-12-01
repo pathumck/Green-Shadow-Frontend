@@ -58,3 +58,37 @@ function loadStaffIdsToVehicleModel() {
   });
 }
 
+$('#btn_save_vehicle').click(function () {
+  const vehicle = {
+    vehicleCode: $('#code_modal_vehicle').text(),
+    vehicleNumber: $('#vehicleNumber_modal_vehicle').val(),
+    vehicleCategory: $('#category_modal_vehicle').val(),
+    fuelType: $('#fuelType_modal_vehicle').val(),
+    status: $('#status_modal_vehicle').val(),
+    remarks: $('#remarks_modal_vehicle').val(),
+    staffId: $('#staffId_modal_vehicle').val(),
+  }
+
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/vehicle',
+    type: 'POST',
+    data: JSON.stringify(vehicle),
+    contentType: 'application/json',
+    processData: false,
+    success: function (data) {
+      loadVehicleIdToModel();
+      $('#vehicleNumber_modal_vehicle').val('');
+      $('#category_modal_vehicle').val('');
+      $('#fuelType_modal_vehicle').val('');
+      $('#status_modal_vehicle').val('');
+      $('#remarks_modal_vehicle').val('');
+      $('#staffId_modal_vehicle').val('');
+      alert("Vehicle added successfully!");
+      $('#vehicle_modal').modal('hide');
+    },
+    error: function (error) {
+      alert(error.responseText);
+    }
+  })
+});
+
