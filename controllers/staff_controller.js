@@ -59,6 +59,7 @@ $('#btn_save_staff').click(function() {
       $('#address5_modal_staff').val('');
       $('#modal_staff').modal('hide');
       loadStaffIdToModel();
+      loadStaffDetailsTable();
     },
     error: function (error) {
       alert(error.responseText);
@@ -114,9 +115,109 @@ function loadStaffDetailsTable() {
         `;
         tableBody.append(row);
       });
+
+      $('.btn-delete-staff').on('click', function() {
+        const staffId = $(this).data('staff-id');
+        deleteStaff(staffId);
+      });
+
+      $('.btn-update-staff').on('click', function() {
+        const staffId = $(this).data('staff-id');
+        loadUpdateStaffModel(staffId);
+      });
     },
     error: function (error) { 
       alert(error.responseText);
     }  
   });
 }
+
+function deleteStaff(staffId) {
+  const confirmed = confirm('Are you sure you want to delete this staff? : ' + staffId);
+  if (confirmed) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/staff/' + staffId,
+      type: 'DELETE',
+      success: function (data) {
+        loadStaffDetailsTable();
+        loadStaffIdToModel();
+        alert(staffId + " : Staff deleted successfully!");
+      },
+      error: function (error) {
+        alert(error.responseText);
+      }
+    });
+  }
+}
+
+function loadUpdateStaffModel(staffId) {
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/staff/' + staffId,
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      $('#id_modal_staff_update').text(data.data.staffId);
+      $('#firstName_modal_staff_update').val(data.data.firstName);
+      $('#lastName_modal_staff_update').val(data.data.lastName);
+      $('#joinedDate_modal_staff_update').val(data.data.joinDate);
+      $('#birthDate_modal_staff_update').val(data.data.birthDate);
+      $('#gender_modal_staff_update').val(data.data.gender);
+      $('#phone_modal_staff_update').val(data.data.phone);
+      $('#email_modal_staff_update').val(data.data.email);
+      $('#designation_modal_staff_update').val(data.data.designation);
+      $('#role_modal_staff_update').val(data.data.role);
+      $('#address1_modal_staff_update').val(data.data.addressLine1);
+      $('#address2_modal_staff_update').val(data.data.addressLine2);
+      $('#address3_modal_staff_update').val(data.data.addressLine3);
+      $('#address4_modal_staff_update').val(data.data.addressLine4);
+      $('#address5_modal_staff_update').val(data.data.addressLine5);
+      $('#modal_staff_update').modal('show');
+    },
+    error: function (error) {
+      alert(error.responseText);
+    }  
+  });
+}
+
+$('#btn_update_staff').click(function() {
+  const staffId = $('#id_modal_staff_update').text();
+  const staff = {
+    staffId: staffId,
+    firstName: $('#firstName_modal_staff_update').val(),
+    lastName: $('#lastName_modal_staff_update').val(),
+    joinDate: $('#joinedDate_modal_staff_update').val(),
+    birthDate: $('#birthDate_modal_staff_update').val(),
+    gender: $('#gender_modal_staff_update').val(),
+    phone: $('#phone_modal_staff_update').val(),
+    email: $('#email_modal_staff_update').val(),
+    designation: $('#designation_modal_staff_update').val(),
+    role: $('#role_modal_staff_update').val(),
+    addressLine1: $('#address1_modal_staff_update').val(),
+    addressLine2: $('#address2_modal_staff_update').val(),
+    addressLine3: $('#address3_modal_staff_update').val(),
+    addressLine4: $('#address4_modal_staff_update').val(),
+    addressLine5: $('#address5_modal_staff_update').val(),
+  };
+
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/staff',
+    type: 'PUT',  
+    data: JSON.stringify(staff),
+    contentType: 'application/json',
+    success: function (data) {
+      loadStaffDetailsTable();
+      loadStaffIdToModel();
+      $('#modal_staff_update').modal('hide');
+      alert(staffId + " : Staff updated successfully!");
+    },
+    error: function (error) {
+      alert(error.responseText);
+    }  
+  });
+});
+
+
+
+
+
+
