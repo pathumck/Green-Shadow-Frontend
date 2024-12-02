@@ -1001,6 +1001,99 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Update Vehicle Modal -->
+                <div class="modal fade" id="vehicle_modal_update" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="vehicleModalLabel_update">Update Vehicle</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="vehicleForm_update">
+
+                                    <!-- Vehicle Code -->
+                                    <div class="row mb-3">
+                                        <div class="col-3">
+                                            <label for="code_modal_vehicle_update" class="form-label">Vehicle Code:</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <label id="code_modal_vehicle_update"></label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <!-- Vehicle Number -->
+                                        <div class="col mb-3">
+                                            <label for="vehicleNumber_modal_vehicle_update" class="form-label">Vehicle Number</label>
+                                            <input type="text" class="form-control" id="vehicleNumber_modal_vehicle_update" placeholder="Enter vehicle number">
+                                        </div>
+                
+                                        <!-- Category -->
+                                        <div class="col mb-3">
+                                            <label for="category_modal_vehicle_update" class="form-label">Category</label>
+                                            <select class="form-select" id="category_modal_vehicle_update">
+                                                <option value="" selected disabled>Select Category</option>
+                                                <option>Light</option>
+                                                <option>Heavy</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <!-- Fuel Type -->
+                                        <div class="col mb-3">
+                                            <label for="fuelType_modal_vehicle_update" class="form-label">Fuel Type</label>
+                                            <select class="form-select" id="fuelType_modal_vehicle_update">
+                                                <option value="" selected disabled>Select Fuel Type</option>
+                                                <option>Petrol</option>
+                                                <option>Diesel</option>
+                                                <option>Electric</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                
+                                        <!-- Remarks -->
+                                        <div class="col mb-3">
+                                            <label for="remarks_modal_vehicle_update" class="form-label">Remarks</label>
+                                            <select class="form-select" id="remarks_modal_vehicle_update">
+                                                <option value="" selected disabled>Select Remarks</option>
+                                                <option>Good Condition</option>
+                                                <option>Needs Maintenance</option>
+                                                <option>Out of Service</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <!-- Status -->
+                                        <div class="col mb-3">
+                                            <label for="status_modal_vehicle_update" class="form-label">Status</label>
+                                            <select class="form-select" id="status_modal_vehicle_update">
+                                                <option value="" selected disabled>Select Status</option>
+                                                <option>Available</option>
+                                                <option>Not Available</option>
+                                            </select>
+                                        </div>
+                
+                                        <!-- Staff ID -->
+                                        <div class="col mb-3">
+                                            <label for="staffId_modal_vehicle_update" class="form-label">Staff ID</label>
+                                            <select class="form-select" id="staffId_modal_vehicle_update"></select>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="btn_update_vehicle" type="button" class="btn btn-primary" form="vehicleForm">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
                 <!-- Vehicle Table -->
                 <div class="row field-div-3">
