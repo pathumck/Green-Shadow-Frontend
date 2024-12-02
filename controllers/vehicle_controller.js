@@ -86,6 +86,7 @@ $('#btn_save_vehicle').click(function () {
       $('#staffId_modal_vehicle').val('');
       alert("Vehicle added successfully!");
       $('#vehicle_modal').modal('hide');
+      loadVehicleDetailsTable();
     },
     error: function (error) {
       alert(error.responseText);
@@ -110,11 +111,34 @@ function loadVehicleDetailsTable() {
           <td>${data.status}</td>
           <td>${data.remarks}</td>
           <td>${data.staffId}</td>
-          <td><button class="btn btn-primary" onclick="loadUpdateVehicleModal('${data.vehicleCode}')">Update</button></td>
-          <td><button class="btn btn-danger" onclick="deleteVehicle('${data.vehicleCode}')">Delete</button></td>
+          <td><button class="btn btn-primary btn-update-vehicle" onclick="loadUpdateVehicleModal('${data.vehicleCode}')">Update</button></td>
+          <td><button type="button" class="btn btn-danger btn-delete-vehicle" data-vehicle-code="${data.vehicleCode}">Delete</button></td>   
         </tr>`;
         tableBody.append(row);
       });
+
+      $('.btn-delete-vehicle').click(function () {
+        const vehicleCode = $(this).data('vehicle-code');
+        deleteVehicle(vehicleCode);
+      });
     }
   });
+}
+
+function deleteVehicle(vehicleCode) {
+  const confirmation = confirm("Are you sure you want to delete this vehicle?");
+  if (confirmation) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/vehicle/' + vehicleCode,
+      type: 'DELETE',
+      success: function (data) {
+        loadVehicleDetailsTable();
+        loadVehicleIdToModel();
+        alert(vehicleCode + " : Vehicle deleted successfully!");
+      },
+      error: function (error) {
+        alert(error.responseText);
+      }
+    });
+  }
 }
