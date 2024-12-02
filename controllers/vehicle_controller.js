@@ -1,6 +1,7 @@
 $(document).ready(function() {
   loadVehicleIdToModel();
   loadStaffIdsToVehicleModel();
+  loadVehicleDetailsTable();
 });
 
 function loadVehicleIdToModel() {
@@ -92,3 +93,28 @@ $('#btn_save_vehicle').click(function () {
   })
 });
 
+function loadVehicleDetailsTable() {
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/vehicle',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      const tableBody = $('#vehicle_details_table_body');
+      tableBody.empty();
+      data.data.forEach(data => {
+        const row = `<tr>
+          <td>${data.vehicleCode}</td>
+          <td>${data.vehicleNumber}</td>
+          <td>${data.vehicleCategory}</td>
+          <td>${data.fuelType}</td>
+          <td>${data.status}</td>
+          <td>${data.remarks}</td>
+          <td>${data.staffId}</td>
+          <td><button class="btn btn-primary" onclick="loadUpdateVehicleModal('${data.vehicleCode}')">Update</button></td>
+          <td><button class="btn btn-danger" onclick="deleteVehicle('${data.vehicleCode}')">Delete</button></td>
+        </tr>`;
+        tableBody.append(row);
+      });
+    }
+  });
+}
