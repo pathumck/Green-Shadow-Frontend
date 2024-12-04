@@ -2,6 +2,7 @@ $(document).ready(function() {
   loadEquipmentIdToModal();
   loadStaffIdsToEquipmentModal();
   loadFieldIdsToEquipmentModal();
+  loadEquipmentDetailsTable();
 })
 
 function loadEquipmentIdToModal() {
@@ -36,6 +37,13 @@ $('#btn_save_equipment').click(function() {
     processData: false, 
     success: function(data) {
       loadEquipmentIdToModal();
+      loadEquipmentDetailsTable();
+      $('#modal_equipment').modal('hide');
+      $('#name_modal_equipment').val('');
+      $('#type_modal_equipment').val('');
+      $('#status_modal_equipment').val('');
+      $('#staffId_modal_equipment').val('');
+      $('#fieldCode_modal_equipment').val('');
       alert("Equipment saved successfully!");
     },
     error: function(error) {
@@ -76,6 +84,43 @@ function loadFieldIdsToEquipmentModal() {
       data.data.forEach(data => {
         const option = `<option value="${data.fieldCode}">${data.fieldCode} ${data.name}</option>`;
         dropDown.append(option);
+      });
+    },
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+}
+
+function loadEquipmentDetailsTable() {
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/equipment',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      const tableBody = $('#equipment_details_table_body');
+      tableBody.empty();
+      data.data.forEach(data => {
+        const row = `
+          <tr>
+            <td>${data.equipmentId}</td>
+            <td>${data.name}</td>
+            <td>${data.type}</td>
+            <td>${data.status}</td>
+            <td>${data.staffId}</td>
+            <td>${data.fieldCode}</td>
+            <td><button type="button" class="btn btn-primary btn-update-equipment" data-bs-toggle="modal" data-bs-target="#modal_equipment_update"
+            data-equipment-id="${data.equipmentId}"
+            data-name="${data.name}"
+            data-type="${data.type}"
+            data-status="${data.status}"
+            data-staff-id="${data.staffId}"
+            data-field-code="${data.fieldCode}"
+            >Update</button></td>
+            <td><button type="button" class="btn btn-danger btn-delete-equipment" data-equipment-id="${data.equipmentId}">Delete</button></td>
+          </tr>
+        `;
+        tableBody.append(row);
       });
     },
     error: function(error) {
