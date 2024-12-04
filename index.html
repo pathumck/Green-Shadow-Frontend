@@ -1236,6 +1236,94 @@
                     </div>
                 </div>
 
+                <!--Update Equipment Modal -->
+                <div class="modal fade" id="modal_equipment_update" tabindex="-1" aria-labelledby="equipmentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="equipmentModalLabel_update">Update Equipment</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="equipmentForm_update">
+                                    <!-- Equipment ID -->
+                                    <div class="row mb-3">
+                                        <div class="col-2">
+                                            <label for="equipmentId_modal_update" class="form-label">Equipment ID:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <label id="equipmentId_modal_update"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- Equipment Name -->
+                                        <div class="col-6 mb-3">
+                                            <div class="col-12">
+                                                <label for="name_modal_equipment_update" class="form-label">Name:</label>
+                                                <input type="text" class="form-control" id="name_modal_equipment_update" placeholder="Enter Equipment Name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="row">
+                                        <!-- Type -->
+                                        <div class="col row mb-3">
+                                            <div class="col-12">
+                                                <label for="type_modal_equipment_update" class="form-label">Type:</label>
+                                                <select class="form-select" id="type_modal_equipment_update">
+                                                    <option value="" selected disabled>Select Type</option>
+                                                    <option>Light</option>
+                                                    <option>Heavy</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        </div> 
+                                        <!-- Status -->
+                                        <div class="col row mb-3">
+                                            <div class="col-12">
+                                                <label for="status_modal_equipment_update" class="form-label">Status:</label>
+                                                <select class="form-select" id="status_modal_equipment_update">
+                                                    <option value="" selected disabled>Select Status</option>
+                                                    <option>Operational</option>
+                                                    <option>Maintenance</option>
+                                                    <option>Out of Order</option>
+                                                </select>
+                                            </div>
+                                        </div>           
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <!-- Field Code -->
+                                        <div class="col row mb-3">
+                                            <div class="col-12">
+                                                <label for="fieldCode_modal_equipment_update" class="form-label">Field Code:</label>
+                                                <select class="form-select" id="fieldCode_modal_equipment_update">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Staff ID -->
+                                        <div class="col row mb-3">
+                                            <div class="col-12">
+                                                <label for="staffId_modal_equipment" class="form-label">Staff ID:</label>
+                                                <select class="form-select" id="staffId_modal_equipment_update">    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="btn_update_equipment" type="button" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Equipment Table -->
                 <div class="row field-div-3">
@@ -1248,8 +1336,8 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Field Code</th>
                                         <th scope="col">Staff Id</th>
+                                        <th scope="col">Field Code</th>
                                         <th scope="col">Action</th>
                                         <th scope="col">Action</th>
                                     </tr>

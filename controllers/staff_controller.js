@@ -61,7 +61,6 @@ $('#btn_save_staff').click(function() {
       $('#modal_staff').modal('hide');
       loadStaffIdToModel();
       loadStaffDetailsTable();
-      loadStaffIdsToVehicleModel();
     },
     error: function (error) {
       alert(error.responseText);
