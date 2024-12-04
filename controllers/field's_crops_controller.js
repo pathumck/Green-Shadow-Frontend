@@ -94,6 +94,30 @@ function selectCropCode() {
   });
 }
 
+$('#btn_fc_add').on('click', function() {
+  const fieldCode = $('#sel_fc_fieldCode').val();
+  const cropCode = $('#sel_fc_cropCode').val();
+  confirm('Are you sure you want to add this crop ' + cropCode + ' to ' + 'field ' + fieldCode + '?');
+  if (confirm) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/field/fieldcrops',
+      type: 'POST', 
+      contentType: 'application/json',
+      data: JSON.stringify({
+        fieldCode: fieldCode,
+        cropCode: cropCode
+      }),
+      processData: false,
+      success: function(data) {
+        alert(cropCode + ' crop added to ' + fieldCode + ' field successfully');
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
+});
+
 
 
 
