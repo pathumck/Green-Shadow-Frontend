@@ -86,3 +86,23 @@ function selectStaffId() {
   });
 }
 
+$('#btn_fs_add').on('click', function() {
+  const confirmation = confirm('Are you sure you want to add this staff to this field?');
+  if (confirmation) {
+    const fieldCode = $('#sel_fs_fieldCode').val();
+  const staffId = $('#sel_fs_staffId').val();
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/staff/fieldstaff',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ fieldCode: fieldCode, staffId: staffId }),
+    success: function(data) {
+      alert('Staff ' + staffId + ' added to ' +  fieldCode + ' field successfully');
+    },  
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+  }
+});
+
