@@ -25,7 +25,6 @@ function selectFieldCode() {
 
       $('#sel_fc_fieldCode').on('change', function() {
         const selectedOption = $(this).find(':selected');
-        const fieldCode = selectedOption.attr('data-fieldCode');
         const name = selectedOption.data('name');
         const location = selectedOption.data('location');
         const imageOneBase64 = selectedOption.attr('data-imageOne');
@@ -34,12 +33,12 @@ function selectFieldCode() {
         const imageOneSrc = `data:image/jpeg;base64,${imageOneBase64}`;
         const imageTwoSrc = `data:image/jpeg;base64,${imageTwoBase64}`;
 
-        $('#lbl_fc_fieldCode').text(fieldCode);
         $('#lbl_fc_name').text(name);
         $('#lbl_fc_location').text(location);
 
         $('#img_fc_imageOne').attr('src', imageOneSrc).show();
         $('#img_fc_imageTwo').attr('src', imageTwoSrc).show();
+        getFieldCropsData();
       });
     },
     error: function(error) {
@@ -109,6 +108,7 @@ $('#btn_fc_add').on('click', function() {
       }),
       processData: false,
       success: function(data) {
+        getFieldCropsData();
         alert(cropCode + ' crop added to ' + fieldCode + ' field successfully');
       },
       error: function(error) {
@@ -117,6 +117,70 @@ $('#btn_fc_add').on('click', function() {
     });
   }
 });
+
+function getFieldCropsData() {
+  const fieldCode = $('#sel_fc_fieldCode').val();
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/field/fieldcrops/' + fieldCode,
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      const fieldCrops = data;
+      const fieldCropsTableBody = $('#tBody_fc_fieldCrops');
+      fieldCropsTableBody.empty();
+      if (fieldCrops.length === 0) {
+        fieldCropsTableBody.append('<tr><td colspan="7" class="text-center">No crops found for this field</td></tr>');
+        return;
+      }
+      fieldCrops.forEach(fieldCrop => {
+        const row = `
+          <tr>
+            <td>${fieldCode}</td>
+            <td>${fieldCrop.cropCode}</td>
+            <td>${fieldCrop.commonName}</td>
+            <td>${fieldCrop.scientificName}</td>
+            <td>${fieldCrop.category}</td>
+            <td>${fieldCrop.season}</td>
+            <td><button type="button" class="btn btn-danger btn-delete-fieldCrop" data-fieldCode="${fieldCode}" data-cropCode="${fieldCrop.cropCode}">Delete</button></td>
+          </tr>
+        `;
+        fieldCropsTableBody.append(row);
+      });
+      $('.btn-delete-fieldCrop').click(function() {
+        const fieldCode = $(this).attr('data-fieldCode');
+        const cropCode = $(this).attr('data-cropCode');
+        console.log(fieldCode, cropCode);
+        deleteFieldCrop(fieldCode, cropCode);
+      });
+    },
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+}
+
+function deleteFieldCrop(fieldCode, cropCode) {
+  const confirmation = confirm('Are you sure you want to delete this crop ' + cropCode + ' from field ' + fieldCode + '?')
+  if (confirmation) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/field/fieldcrops',
+      type: 'DELETE',
+      data: {
+        fieldCode: fieldCode,
+        cropCode: cropCode
+      },
+      success: function(data) {
+        alert(cropCode + ' crop deleted from ' + fieldCode + ' field successfully');
+        getFieldCropsData();
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
+}
+
+
 
 
 

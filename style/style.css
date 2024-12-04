@@ -355,3 +355,11 @@ main section {
     height: auto;
     object-fit: cover;
 }
+
+.custom-color-field-crop td {
+    font-size: x-small;
+}
+
+.custom-color-field-crop td button {
+    font-size: smaller;
+}

@@ -1374,18 +1374,12 @@
                             <form>
                                 <!-- Field Code Selection -->
                                 <div class="row g-0 mb-1">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="field-container">
                                             <label for="sel_fc_fieldCode" class="form-label small-label">Field Code :</label>
                                             <select class="form-select form-select-sm" id="sel_fc_fieldCode">
                                                 <option selected disabled>Select a field</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="field-container">
-                                            <label for="lbl_fc_fieldCode" class="form-label small-label">Field Code :</label>
-                                            <label class="form-control fixed-height-label small-label" id="lbl_fc_fieldCode"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1504,11 +1498,10 @@
                                             <th scope="col">Scientific Name</th>
                                             <th scope="col">Category</th>
                                             <th scope="col">Season</th>
-                                            <th scope="col">Image</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="imageTableBody">
+                                    <tbody id="tBody_fc_fieldCrops" class="imageTableBody">
                                         <!-- Table rows go here -->
                                     </tbody>
                                 </table>
