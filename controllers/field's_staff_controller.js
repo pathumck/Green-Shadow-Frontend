@@ -1,9 +1,9 @@
 $(document).ready(function() {
   selectFieldCodeForStaff();
+  selectStaffId();
 });
 
 function selectFieldCodeForStaff() {
-  console.log('selectFieldCodeForStaff');
   $.ajax({
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
@@ -24,7 +24,6 @@ function selectFieldCodeForStaff() {
       });
 
       $('#sel_fs_fieldCode').on('change', function() {
-        console.log('Changed');
         const selectedOption = $(this).find(':selected');
         const name = selectedOption.data('name');
         const location = selectedOption.data('location');
@@ -47,3 +46,43 @@ function selectFieldCodeForStaff() {
     }
   });
 }
+
+function selectStaffId() {
+  $.ajax({  
+    url: 'http://localhost:8080/greenshadow/staff',
+    type: 'GET',
+    dataType: 'json',
+
+    success: function(data) {
+      const dropDown = $('#sel_fs_staffId');
+      dropDown.empty();
+      dropDown.append(`<option value="" selected disabled>Select Staff</option>`);
+      data.data.forEach(data => {
+          const option = `<option
+          data-staffId="${data.staffId}"
+          data-firstName="${data.firstName}"
+          data-lastName="${data.lastName}"
+          data-designation="${data.designation}"
+          data-role="${data.role}"
+          value="${data.staffId}">${data.staffId} ${data.firstName} ${data.lastName}</option>`;
+          dropDown.append(option);
+        });
+      $('#sel_fs_staffId').on('change', function() {
+        const selectedOption = $(this).find(':selected');
+        const firstName = selectedOption.attr('data-firstName');
+        const lastName = selectedOption.attr('data-lastName');
+        const designation = selectedOption.attr('data-designation');
+        const role = selectedOption.attr('data-role');
+        $('#lbl_fs_staffId').text(selectedOption.val());
+        $('#lbl_fs_firstName').text(firstName);
+        $('#lbl_fs_lastName').text(lastName);
+        $('#lbl_fs_designation').text(designation);
+        $('#lbl_fs_role').text(role);
+      });
+    },
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+}
+
