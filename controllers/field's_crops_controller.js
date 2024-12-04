@@ -125,7 +125,7 @@ function getFieldCropsData() {
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-      const fieldCrops = data;
+      const fieldCrops = data.data;
       const fieldCropsTableBody = $('#tBody_fc_fieldCrops');
       fieldCropsTableBody.empty();
       if (fieldCrops.length === 0) {
