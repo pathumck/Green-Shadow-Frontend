@@ -39,6 +39,7 @@ function selectFieldCodeForStaff() {
 
         $('#img_fs_imageOne').attr('src', imageOneSrc).show();
         $('#img_fs_imageTwo').attr('src', imageTwoSrc).show();
+        getFieldStaffData();
       });
     },
     error: function(error) {
@@ -98,6 +99,7 @@ $('#btn_fs_add').on('click', function() {
     data: JSON.stringify({ fieldCode: fieldCode, staffId: staffId }),
     success: function(data) {
       alert('Staff ' + staffId + ' added to ' +  fieldCode + ' field successfully');
+      getFieldStaffData();
     },  
     error: function(error) {
       alert(error.responseText);
@@ -105,4 +107,61 @@ $('#btn_fs_add').on('click', function() {
   });
   }
 });
+
+function getFieldStaffData() {
+  const fieldCode = $('#sel_fs_fieldCode').val();
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/staff/fieldstaff/' + fieldCode,
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      const tableBody = $('#tbody_fs_fieldstaff');
+      tableBody.empty();
+      if (data.data.length === 0) {
+        tableBody.append('<tr><td colspan="7" class="text-center">No staff found for this field</td></tr>');
+        return;
+      }
+      data.data.forEach(data => {
+        const row = `<tr>
+                      <td>${fieldCode}</td>
+                      <td>${data.staffId}</td>
+                      <td>${data.firstName}</td>
+                      <td>${data.lastName}</td>
+                      <td>${data.designation}</td>
+                      <td>${data.role}</td>
+                      <td><button type="button" class="btn btn-danger btn-delete" data-field-code="${fieldCode}" data-staff-id="${data.staffId}">Delete</button></td>
+                    </tr>`;
+        tableBody.append(row);
+      });
+      $('.btn-delete').on('click', function() {
+        const fieldCode = $(this).attr('data-field-code');
+        const staffId = $(this).attr('data-staff-id');
+        console.log(fieldCode, staffId);
+        deleteFieldStaff(fieldCode, staffId);
+      });
+    },
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+}
+
+function deleteFieldStaff(fieldCode, staffId) {
+  console.log(fieldCode, staffId);
+  const confirmation = confirm('Are you sure you want to delete this staff ' + staffId + ' from this ' + fieldCode + ' field?');
+  if (confirmation) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/staff/fieldstaff',
+      data: { fieldCode: fieldCode, staffId: staffId },
+      type: 'DELETE',
+      success: function(data) {
+        alert('Staff ' + staffId + ' deleted from ' + fieldCode + ' field successfully');
+        getFieldStaffData();
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
+}
 
