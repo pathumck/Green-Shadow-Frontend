@@ -139,19 +139,21 @@ function loadEquipmentDetailsTable() {
 }
 
 function deleteEquipment(equipmentId) {
-  confirm('Are you sure you want to delete this equipment? : ' + equipmentId);
-  $.ajax({
-    url: 'http://localhost:8080/greenshadow/equipment/' + equipmentId,
-    type: 'DELETE',
-    success: function(data) {
-      loadEquipmentDetailsTable();
-      loadEquipmentIdToModal();
-      alert(equipmentId + ' : Equipment deleted successfully!');
-    },
-    error: function(error) {
-      alert(error.responseText);
-    }
-  });
+  const confirmation = confirm('Are you sure you want to delete this equipment? : ' + equipmentId);
+  if (confirmation) {
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/equipment/' + equipmentId,
+      type: 'DELETE',
+      success: function(data) {
+        loadEquipmentDetailsTable();
+        loadEquipmentIdToModal();
+        alert(equipmentId + ' : Equipment deleted successfully!');
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
 }
 
 function loadUpdateEquipmentModal(equipmentId) {
