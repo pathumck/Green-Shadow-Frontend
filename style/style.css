@@ -379,3 +379,8 @@ main section {
 .custom-file-label:hover {
     background-color: #0056b3;
 }
+
+.custom-table-height {
+    height: 100vh;
+    max-height: 470px;
+}

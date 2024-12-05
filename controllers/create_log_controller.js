@@ -324,6 +324,7 @@ $('#btn_cl_create_log').on('click', function() {
       success: function(data) {
         alert("Log created successfully.");
         resetLogForm();
+        loadPreviousLogsTable();
       },
       error: function(error) {
         alert(error.responseText);

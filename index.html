@@ -100,7 +100,7 @@
                     </span>
                     <span class="description">Create Log</span>
                 </a>
-                <a href="#" class="nav-link" style="padding-top: 4px;">
+                <a id="nav_previous_logs" href="#" class="nav-link" style="padding-top: 4px;">
                     <span class="icon">
                         <i>
                             <img src="/icons/log_details.png" alt="log_details_image" width="20" height="20">
@@ -2007,6 +2007,46 @@
             </div>
         </section>
 
+        <section id="sec_previous_logs" class="sec-field-crops">
+            <div class="container">
+                <div class="row field-div-1">
+                    <div class="col">
+                        <span class="font-size span-text faculty-glyphic-regular custom-color-field-crop small-text">
+                            PREVIOUS LOGS
+                        </span>
+                    </div>
+                    <div class="col">
+                        <img src="/icons/green shadow.png" alt="green_shadow_image" class="img-fluid img-logo">
+                    </div>
+                </div>
+                <!-- Equipment Table -->
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive scrollable-table custom-table-height">
+                            <table class="table table-striped custom-color-equipment">
+                                <thead class="table-header-fixed">
+                                    <tr>
+                                        <th scope="col">Log Code</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Fields</th>
+                                        <th scope="col">Crops</th>
+                                        <th scope="col">Staff</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Observation</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody_previous_logs" class="imageTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
 
         
 </main>
@@ -2023,6 +2063,7 @@
     <script src="/controllers/field's_crops_controller.js"></script>
     <script src="controllers/field's_staff_controller.js"></script>
     <script src="/controllers/create_log_controller.js"></script>
+    <script src="/controllers/previous_logs_controller.js"></script>
     
 </body>
 </html>
