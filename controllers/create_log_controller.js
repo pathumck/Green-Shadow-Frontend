@@ -95,11 +95,15 @@ function selectFieldCodeForCreateLog() {
             <td>${location}</td>
             <td><img src="${imageOneSrc}" alt="Image One" width="70"></td>
             <td><img src="${imageTwoSrc}" alt="Image Two" width="70"></td>
+            <td><button class="btn btn-danger btn-remove">Remove</button></td>
           </tr>
         `;
-
         $('#tbody_cl_fields').append(tableRow);
-      });        
+      }); 
+      
+      $('#tbody_cl_fields').on('click', '.btn-remove', function() {
+        $(this).closest('tr').remove();
+      });
     },
     error: function(error) {
       alert(error.responseText);
@@ -178,10 +182,15 @@ function selectCropCodeForCreateLog() {
             <td>${category}</td>
             <td>${season}</td>
             <td><img src="${imageSrc}" alt="Image" width="70"></td>
+            <td><button class="btn btn-danger btn-remove">Remove</button></td>
           </tr>
         `;
 
         $('#tbody_cl_crops').append(tableRow);
+      });
+
+      $('#tbody_cl_crops').on('click', '.btn-remove', function() {
+        $(this).closest('tr').remove();
       });
     },
     error: function(error) {
