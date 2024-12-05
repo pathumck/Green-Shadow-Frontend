@@ -4,6 +4,7 @@ $(document).ready(function() {
   setInterval(loadDateToLabel, 1000);
   selectFieldCodeForCreateLog();
   selectCropCodeForCreateLog();
+  selectStaffIdForCreateLog();
 });
 
 function loadLogIdToLabel() {
@@ -198,3 +199,82 @@ function selectCropCodeForCreateLog() {
     }
   });
 }
+
+function selectStaffIdForCreateLog() {
+  $.ajax({
+    url: 'http://localhost:8080/greenshadow/staff',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      const dropDown = $('#sel_cl_staffId');
+      dropDown.empty();
+      dropDown.append(`<option value="" selected disabled>Select Staff</option>`);
+      data.data.forEach(data => {
+        const option = `<option 
+        data-staffId="${data.staffId}"
+        data-firstName="${data.firstName}"
+        data-lastName="${data.lastName}"
+        data-designation="${data.designation}"
+        data-role="${data.role}"
+        value="${data.staffId}">${data.staffId} ${data.firstName} ${data.lastName}</option>`;
+        dropDown.append(option);
+      });
+
+      $('#sel_cl_staffId').on('change', function() {
+        const selectedOption = $(this).find(':selected');
+        const firstName = selectedOption.attr('data-firstName');
+        const lastName = selectedOption.attr('data-lastName');
+        const designation = selectedOption.attr('data-designation');
+        const role = selectedOption.attr('data-role');
+        $('#lbl_cl_staffId').text(selectedOption.val());
+        $('#lbl_cl_firstName').text(firstName);
+        $('#lbl_cl_lastName').text(lastName);
+        $('#lbl_cl_designation').text(designation);
+        $('#lbl_cl_role').text(role);
+      });
+
+      $('#btn_cl_add_staff').on('click', function() {
+        const selectedOption = $('#sel_cl_staffId').find(':selected');
+        if (!selectedOption.val()) {
+          alert('Please select a staff.');
+          return;
+        }
+
+        const staffId = selectedOption.attr('data-staffId');
+        const firstName = selectedOption.attr('data-firstName');
+        const lastName = selectedOption.attr('data-lastName');
+        const designation = selectedOption.attr('data-designation');
+        const role = selectedOption.attr('data-role');
+
+        const isDuplicate = $('#tbody_cl_staff tr').filter(function() {
+          return $(this).find('td').eq(0).text() === staffId;
+        }).length > 0;
+
+        if (isDuplicate) {
+          alert('This staff ' + staffId + ' is already added.');
+          return;
+        }
+        const tableRow = `
+          <tr>
+            <td>${staffId}</td>
+            <td>${firstName}</td>
+            <td>${lastName}</td>
+            <td>${designation}</td>
+            <td>${role}</td>
+            <td><button class="btn btn-danger btn-remove">Remove</button></td>
+          </tr>
+        `;
+
+        $('#tbody_cl_staff').append(tableRow);
+      });
+
+      $('#tbody_cl_staff').on('click', '.btn-remove', function() {
+        $(this).closest('tr').remove();
+      });
+    },
+    error: function(error) {
+      alert(error.responseText);
+    }
+  });
+}
+

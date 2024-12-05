@@ -1773,6 +1773,7 @@
                                             <th scope="col">Location</th>
                                             <th scope="col">Image One</th>
                                             <th scope="col">Image Two</th>
+                                            <th scope="col">Remove</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody_cl_fields" class="imageTableBody">
@@ -1842,7 +1843,7 @@
                                     <div class="col-6">
                                         <div class="field-container">
                                             <label for="img_cl_image" class="form-label small-label">Image :</label>
-                                            <img id="img_cl_image" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                            <img id="img_cl_image" alt=" " class="img-fluid img-thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -1871,7 +1872,7 @@
                                             <th scope="col">Category</th>
                                             <th scope="col">Season</th>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Remove</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody_cl_crops" class="imageTableBody">
@@ -1895,21 +1896,12 @@
                             <form>
                                 <!-- Staff Id Selection -->
                                 <div class="row g-0 mb-1">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="field-container">
-                                            <label for="field1" class="form-label small-label">Staff Id :</label>
-                                            <select class="form-select form-select-sm" id="field1">
+                                            <label for="sel_cl_staffId" class="form-label small-label">Staff Id :</label>
+                                            <select class="form-select form-select-sm" id="sel_cl_staffId">
                                                 <option selected disabled>Select a staff</option>
-                                                <option value="option1">Option 1</option>
-                                                <option value="option2">Option 2</option>
-                                                <option value="option3">Option 3</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="field-container">
-                                            <label for="field2" class="form-label small-label">Staff Id :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1918,14 +1910,14 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field3" class="form-label small-label">First Name :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                            <label for="lbl_cl_firstName" class="form-label small-label">First Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_firstName"></label>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field4" class="form-label small-label">Last Name :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                            <label for="lbl_cl_lastName" class="form-label small-label">Last Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_lastName"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1934,14 +1926,14 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field3" class="form-label small-label">Designation :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                            <label for="lbl_cl_designation" class="form-label small-label">Designation :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_designation"></label>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field4" class="form-label small-label">Role :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                            <label for="lbl_cl_role" class="form-label small-label">Role :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_role"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1950,7 +1942,7 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col d-flex justify-content-center align-items-center">
                                         <div class="field-container">
-                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                            <button id="btn_cl_add_staff" type="button" class="btn btn-primary btn-sm">Add</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1974,9 +1966,8 @@
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="imageTableBody">
+                                    <tbody id="tbody_cl_staff" class="imageTableBody">
                                         <tr></tr>
-                                        <!-- Table rows go here -->
                                     </tbody>
                                 </table>
                             </div>
