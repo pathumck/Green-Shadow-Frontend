@@ -302,10 +302,10 @@ $('#btn_cl_create_log').on('click', function() {
     });
 
     if (fieldCodes.length === 0 || cropCodes.length === 0 || staffIds.length === 0) {
-      alert('Please select at least one field, crop, and staff.');
+      alert('Please add at least one field, crop, and staff to the log.');
       return;
     }
-  
+
     const formData = new FormData();
     formData.append('logCode', logCode);
     formData.append('date', date);
