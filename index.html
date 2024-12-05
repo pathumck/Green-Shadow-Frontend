@@ -1708,21 +1708,12 @@
                             <form>
                                 <!-- Field Code Selection -->
                                 <div class="row g-0 mb-1">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="field-container">
-                                            <label for="field1" class="form-label small-label">Field Code :</label>
-                                            <select class="form-select form-select-sm" id="field1">
+                                            <label for="sel_cl_fieldCode" class="form-label small-label">Field Code :</label>
+                                            <select class="form-select form-select-sm" id="sel_cl_fieldCode">
                                                 <option selected disabled>Select a field</option>
-                                                <option value="option1">Option 1</option>
-                                                <option value="option2">Option 2</option>
-                                                <option value="option3">Option 3</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="field-container">
-                                            <label for="field2" class="form-label small-label">Field Code :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1731,14 +1722,14 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field3" class="form-label small-label">Name :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                            <label for="lbl_cl_name" class="form-label small-label">Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_name"></label>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field4" class="form-label small-label">Location :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                            <label for="lbl_cl_location" class="form-label small-label">Location :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_location"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1747,21 +1738,21 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field5" class="form-label small-label">Image One :</label>
-                                            <img id="field5-image" src="" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                            <label for="img_cl_imageOne" class="form-label small-label">Image One :</label>
+                                            <img id="img_cl_imageOne" alt=" " class="img-fluid img-thumbnail">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field6" class="form-label small-label">Image Two :</label>
-                                            <img id="field6-image" src="" alt="Field 6 Image" class="img-fluid img-thumbnail">
+                                            <label for="img_cl_imageTwo" class="form-label small-label">Image Two :</label>
+                                            <img id="img_cl_imageTwo" alt=" " class="img-fluid img-thumbnail">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row g-0 mb-1">
                                     <div class="col d-flex justify-content-center align-items-center">
                                         <div class="field-container">
-                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                            <button id="btn_cl_field_add" type="button" class="btn btn-primary btn-sm">Add</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1784,9 +1775,7 @@
                                             <th scope="col">Image Two</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="imageTableBody">
-                                        <tr></tr>
-                                        <!-- Table rows go here -->
+                                    <tbody id="tbody_cl_fields" class="imageTableBody">
                                     </tbody>
                                 </table>
                             </div>
@@ -1807,21 +1796,12 @@
                             <form>
                                 <!-- Crop Code Selection -->
                                 <div class="row g-0 mb-1">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="field-container">
-                                            <label for="field1" class="form-label small-label">Crop Code :</label>
-                                            <select class="form-select form-select-sm" id="field1">
+                                            <label for="sel_cl_cropCode" class="form-label small-label">Crop Code :</label>
+                                            <select class="form-select form-select-sm" id="sel_cl_cropCode">
                                                 <option selected disabled>Select a crop</option>
-                                                <option value="option1">Option 1</option>
-                                                <option value="option2">Option 2</option>
-                                                <option value="option3">Option 3</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="field-container">
-                                            <label for="field2" class="form-label small-label">Crop Code :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field2"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1830,14 +1810,14 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field3" class="form-label small-label">Common Name :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                            <label for="lbl_cl_commonName" class="form-label small-label">Common Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_commonName"></label>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field4" class="form-label small-label">Scientific Name :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                            <label for="lbl_cl_scientificName" class="form-label small-label">Scientific Name :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_scientificName"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1845,14 +1825,14 @@
                                 <div class="row g-0 mb-1">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field3" class="form-label small-label">Category :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field3"></label>
+                                            <label for="lbl_cl_category" class="form-label small-label">Category :</label>
+                                            <label class="form-control fixed-height-label small-label" id="lbl_cl_category"></label>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field4" class="form-label small-label">Season :</label>
-                                            <label class="form-control fixed-height-label small-label" id="field4"></label>
+                                            <label for="lbl_cl_season" class="form-label small-label">Season :</label>
+                                            <label id="lbl_cl_season" class="form-control fixed-height-label small-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1861,15 +1841,15 @@
                                 <div class="row g-0 mb-1 justify-content-center">
                                     <div class="col-6">
                                         <div class="field-container">
-                                            <label for="field5" class="form-label small-label">Image :</label>
-                                            <img id="field5-image" src="" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                            <label for="img_cl_image" class="form-label small-label">Image :</label>
+                                            <img id="img_cl_image" alt="Field 5 Image" class="img-fluid img-thumbnail">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row g-0 mb-1">
                                     <div class="col d-flex justify-content-center align-items-center">
                                         <div class="field-container">
-                                            <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                            <button id="btn_cl_add_crop" type="button" class="btn btn-primary btn-sm">Add</button>
                                         </div>
                                     </div>
                                 </div>
