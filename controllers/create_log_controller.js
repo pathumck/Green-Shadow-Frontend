@@ -278,3 +278,85 @@ function selectStaffIdForCreateLog() {
   });
 }
 
+$('#btn_cl_create_log').on('click', function() {
+  const confirmation = confirm('Are you sure you want to create this log?');
+  if (confirmation) {
+    const fieldCodes = [];
+    const cropCodes = [];
+    const staffIds = [];
+    const logCode = $('#lbl_cl_logCode').text();
+    const date = $('#lbl_cl_date').text();
+    const image = $('#in_cl_image')[0].files[0];
+    const observation = $('#t-area-observation').val();
+    
+    $('#tbody_cl_fields tr').each(function() {
+      fieldCodes.push($(this).find('td').eq(0).text());
+    });
+  
+    $('#tbody_cl_crops tr').each(function() {
+      cropCodes.push($(this).find('td').eq(0).text());
+    });
+  
+    $('#tbody_cl_staff tr').each(function() {
+      staffIds.push($(this).find('td').eq(0).text());
+    });
+
+    if (fieldCodes.length === 0 || cropCodes.length === 0 || staffIds.length === 0) {
+      alert('Please select at least one field, crop, and staff.');
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('logCode', logCode);
+    formData.append('date', date);
+    formData.append('logFields', fieldCodes);
+    formData.append('logCrops', cropCodes);
+    formData.append('logStaff', staffIds);
+    formData.append('image', image);
+    formData.append('details', observation);
+  
+    $.ajax({
+      url: 'http://localhost:8080/greenshadow/log',
+      type: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        alert("Log created successfully.");
+        resetLogForm();
+      },
+      error: function(error) {
+        alert(error.responseText);
+      }
+    });
+  }
+})
+
+function resetLogForm() {
+  loadLogIdToLabel();
+      $('#tbody_cl_fields').empty();
+      $('#tbody_cl_crops').empty();
+      $('#tbody_cl_staff').empty();
+      $('#t-area-observation').val('');
+      $('#in_cl_image').val('');
+      $('#sel_cl_fieldCode').val('');
+      $('#sel_cl_cropCode').val('');
+      $('#sel_cl_staffId').val('');
+      $('#lbl_cl_fieldId').text('');
+      $('#lbl_cl_cropId').text('');
+      $('#lbl_cl_staffId').text('');
+      $('#lbl_cl_firstName').text('');
+      $('#lbl_cl_lastName').text('');
+      $('#lbl_cl_designation').text('');
+      $('#lbl_cl_role').text('');
+      $('#lbl_cl_commonName').text('');
+      $('#lbl_cl_scientificName').text('');
+      $('#lbl_cl_category').text('');
+      $('#lbl_cl_season').text('');
+      $('#img_cl_image_observation').attr('src', '');
+      $('#img_cl_imageOne').attr('src', '');
+      $('#img_cl_imageTwo').attr('src', '');
+      $('#img_cl_image').attr('src', '');
+      $('#lbl_cl_name').text('');
+      $('#lbl_cl_location').text('');
+}

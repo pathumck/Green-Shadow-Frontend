@@ -1967,7 +1967,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tbody_cl_staff" class="imageTableBody">
-                                        <tr></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -1980,10 +1979,13 @@
                         <div class="col-2">
                             <div class="field-container">
                                 <label for="field5" class="form-label small-label">Image :</label>
-                                <img id="field5-image" src="" alt="Field 5 Image" class="img-fluid img-thumbnail">
+                                <img id="img_cl_image_observation" alt=" " class="img-fluid img-thumbnail">
                                 <div class="col d-flex justify-content-center align-items-center">
                                     <div class="field-container">
-                                        <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="in_cl_image" accept="image/*" onchange="previewImage(this, '#img_cl_image_observation')">
+                                            <label class="custom-file-label" for="in_cl_image">Choose file</label>
+                                          </div>
                                     </div>
                                 </div>    
                             </div>
@@ -1998,7 +2000,7 @@
                 </div>  
                 <div class="col d-flex justify-content-center align-items-center">
                     <div class="field-container">
-                        <button type="button" class="btn btn-success btn-sm custom-btn">Create Log</button>
+                        <button id="btn_cl_create_log" type="button" class="btn btn-success btn-sm custom-btn">Create Log</button>
                     </div>
                 </div>  
                 
