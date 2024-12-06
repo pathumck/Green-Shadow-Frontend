@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  selectFieldCode();
-  selectCropCode();
+  // selectFieldCode();
+  // selectCropCode();
 });
 
 function selectFieldCode() {
@@ -8,6 +8,9 @@ function selectFieldCode() {
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_fc_fieldCode');
       dropDown.empty();
@@ -52,6 +55,9 @@ function selectCropCode() {
     url: 'http://localhost:8080/greenshadow/crop',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_fc_cropCode');
       dropDown.empty();
@@ -102,6 +108,9 @@ $('#btn_fc_add').on('click', function() {
       url: 'http://localhost:8080/greenshadow/field/fieldcrops',
       type: 'POST', 
       contentType: 'application/json',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       data: JSON.stringify({
         fieldCode: fieldCode,
         cropCode: cropCode
@@ -124,6 +133,9 @@ function getFieldCropsData() {
     url: 'http://localhost:8080/greenshadow/field/fieldcrops/' + fieldCode,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const fieldCrops = data.data;
       const fieldCropsTableBody = $('#tBody_fc_fieldCrops');
@@ -168,6 +180,9 @@ function deleteFieldCrop(fieldCode, cropCode) {
       data: {
         fieldCode: fieldCode,
         cropCode: cropCode
+      },
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function(data) {
         alert(cropCode + ' crop deleted from ' + fieldCode + ' field successfully');

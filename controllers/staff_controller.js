@@ -1,12 +1,15 @@
 $(document).ready(function() {
-  loadStaffIdToModel();
-  loadStaffDetailsTable();
+  // loadStaffIdToModel();
+  // loadStaffDetailsTable();
 });
 
 function loadStaffIdToModel() {
   $.ajax({
     url: 'http://localhost:8080/greenshadow/staff/newid',
     type: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       $('#id_modal_staff').text(data.data);
     },
@@ -42,6 +45,9 @@ $('#btn_save_staff').click(function() {
     data: JSON.stringify(staff),
     contentType: 'application/json',
     processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       alert("Staff saved successfully!");
       $('#firstName_modal_staff').val('');
@@ -73,6 +79,9 @@ function loadStaffDetailsTable() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       const tableBody = $('#staff_details_table_body');
       tableBody.empty();
@@ -139,6 +148,9 @@ function deleteStaff(staffId) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/staff/' + staffId,
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function (data) {
         loadStaffDetailsTable();
         loadStaffIdToModel();
@@ -156,6 +168,9 @@ function loadUpdateStaffModel(staffId) {
     url: 'http://localhost:8080/greenshadow/staff/' + staffId,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       $('#id_modal_staff_update').text(data.data.staffId);
       $('#firstName_modal_staff_update').val(data.data.firstName);
@@ -205,6 +220,9 @@ $('#btn_update_staff').click(function() {
     type: 'PUT',  
     data: JSON.stringify(staff),
     contentType: 'application/json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       loadStaffDetailsTable();
       loadStaffIdToModel();

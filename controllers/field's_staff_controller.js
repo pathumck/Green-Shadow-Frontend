@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  selectFieldCodeForStaff();
-  selectStaffId();
+  // selectFieldCodeForStaff();
+  // selectStaffId();
 });
 
 function selectFieldCodeForStaff() {
@@ -8,6 +8,9 @@ function selectFieldCodeForStaff() {
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_fs_fieldCode');
       dropDown.empty();
@@ -53,7 +56,9 @@ function selectStaffId() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
-
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_fs_staffId');
       dropDown.empty();
@@ -97,6 +102,9 @@ $('#btn_fs_add').on('click', function() {
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({ fieldCode: fieldCode, staffId: staffId }),
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       alert('Staff ' + staffId + ' added to ' +  fieldCode + ' field successfully');
       getFieldStaffData();
@@ -114,6 +122,9 @@ function getFieldStaffData() {
     url: 'http://localhost:8080/greenshadow/staff/fieldstaff/' + fieldCode,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const tableBody = $('#tbody_fs_fieldstaff');
       tableBody.empty();
@@ -154,6 +165,9 @@ function deleteFieldStaff(fieldCode, staffId) {
       url: 'http://localhost:8080/greenshadow/staff/fieldstaff',
       data: { fieldCode: fieldCode, staffId: staffId },
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         alert('Staff ' + staffId + ' deleted from ' + fieldCode + ' field successfully');
         getFieldStaffData();

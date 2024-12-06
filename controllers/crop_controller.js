@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  loadCropCodeToModel();
-  loadCropDetailsTable();
+  // loadCropCodeToModel();
+  // loadCropDetailsTable();
 })
 
 function loadCropCodeToModel() {
@@ -8,6 +8,9 @@ function loadCropCodeToModel() {
     url: 'http://localhost:8080/greenshadow/crop/nextcode',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       $("#code_modal_crop").text(data.data);
     },
@@ -32,6 +35,9 @@ $("#btn_save_crop").click(function() {
    data: formData,
    contentType: false,
    processData: false,
+   headers: {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+   },
    success: function(data) {
      alert("Crop added successfully");
      $('#commonName_modal_crop').val('');
@@ -57,6 +63,9 @@ function loadCropDetailsTable() {
     url: 'http://localhost:8080/greenshadow/crop',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const tableBody = $('#crop_details_table_body');
       tableBody.empty();
@@ -105,6 +114,9 @@ function deleteCrop(cropCode) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/crop/' + cropCode,
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         loadCropDetailsTable();
         loadCropCodeToModel();
@@ -122,6 +134,9 @@ function loadUpdateCropModal(cropCode) {
     url: 'http://localhost:8080/greenshadow/crop/' + cropCode,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       $('#code_modal_crop_update').text(data.data.cropCode);
       $('#commonName_modal_crop_update').val(data.data.commonName);
@@ -159,7 +174,10 @@ $('#btn_update_crop').on('click', function() {
     type: 'PUT',  
     data: formData,     
     contentType: false,             
-    processData: false,     
+    processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },     
     success: function(data) {
       alert("Crop updated successfully");
       $('#commonName_modal_crop_update').val('');

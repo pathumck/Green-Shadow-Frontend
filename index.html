@@ -132,6 +132,17 @@
                     <span class="description">Equipments</span>
                 </span>
             </a>
+
+            <!-- Users -->
+            <a id="nav_users" href="#" class="nav-link" style="padding-top: 4px;">
+                <span class="icon">
+                    <i>
+                        <img src="/icons/users.png" alt="users_image" width="20" height="20">
+                    </i>
+                    <span class="description">Users</span>
+                </span>
+            </a>
+
             <!-- Logout -->
             <a href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
@@ -1471,6 +1482,94 @@
             </div>  
         </section>
 
+         <!-- Users Section -->
+         <section id="sec_users">
+            <div class="container">
+                <div class="row field-div-1">
+                    <div class="col">
+                        <span class="faculty-glyphic-regular custom-color-equipment">Users</span>
+                    </div>
+                    <div class="col">
+                        <img src="/icons/green shadow.png" alt="green_shadow_image" class="img-fluid img-logo">
+                    </div>
+                </div>
+                <div class="row field-div-2">
+                    <!-- Add User -->
+                    <div class="col-5">
+                        <button type="button" class="btn btn-success btn-add-a-field" data-bs-toggle="modal" data-bs-target="#modal_add_user">Add a User</button>
+                    </div>
+                </div>
+
+                <!-- Modal Add User -->
+                <div class="modal fade" id="modal_add_user" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="userModalLabel">Add User</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="userForm">
+                                    <!-- Email Input -->
+                                    <div class="mb-3">
+                                        <label for="email_modal_user" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email_modal_user" placeholder="Enter your email" required>
+                                    </div>
+                                    
+                                    <!-- Password Input -->
+                                    <div class="mb-3">
+                                        <label for="password_modal_user" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password_modal_user" placeholder="Enter your password" required>
+                                    </div>
+
+                                    <!-- Confirm Password Input -->
+                                    <div class="mb-3">
+                                        <label for="confirmPassword_modal_user" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword_modal_user" placeholder="Confirm your password" required>
+                                    </div>
+
+                                    <!-- Role Selection -->
+                                    <div class="mb-3">
+                                        <label for="role_modal_user" class="form-label">Role</label>
+                                        <select id="role_modal_user" class="form-select" required>
+                                            <option value="" disabled selected>Select a role</option>
+                                            <option value="MANAGER">MANAGER</option>
+                                            <option value="ADMINISTRATIVE">ADMINISTRATIVE</option>
+                                            <option value="SCIENTIST">SCIENTIST</option>
+                                        </select>
+                                    </div>
+
+                                    <button id="btn_save_user" type="button" class="btn btn-primary w-100">Add User</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="row field-div-3">
+                    <div class="col">
+                        <div class="table-responsive scrollable-table">
+                            <table class="table table-striped custom-color-equipment">
+                                <thead class="table-header-fixed">
+                                    <tr>
+                                        <th scope="col">User Id</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users_table_body" class="imageTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </section>
+
+
         <!-- Field's Crop Section -->
         <section id="sec_field_crops" class="sec-field-crops">
             <div class="container">
@@ -2185,6 +2284,7 @@
     <script src="/controllers/previous_logs_controller.js"></script>
     <script src="/controllers/dashboard_controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/controllers/users_controller.js"></script>
     
 </body>
 </html>

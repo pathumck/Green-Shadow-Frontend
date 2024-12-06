@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  loadFieldCodeToModel();
-  loadFieldDetailsTable();
+  // loadFieldCodeToModel();
+  // loadFieldDetailsTable();
 });
 
 function previewImage(input, previewId) {
@@ -20,6 +20,9 @@ function loadFieldCodeToModel() {
       url: 'http://localhost:8080/greenshadow/field/nextcode',
       type: 'GET',
       dataType: 'json',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function (data) {
           $('#code_model_field').text(data.data);
       },
@@ -51,6 +54,9 @@ $('#btn_save_field').click(function() {
       data: formData,
       contentType: false,
       processData: false,
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
           alert("Field saved successfully!");
           loadFieldCodeToModel();
@@ -77,6 +83,9 @@ function loadFieldDetailsTable() {
       url: 'http://localhost:8080/greenshadow/field',
       type: 'GET',
       dataType: 'json',
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
           console.log(data);
           const tableBody = $('#field_details_Table_Body');
@@ -128,6 +137,9 @@ function deleteField(fieldCode) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/field/' + fieldCode,
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         loadFieldDetailsTable();
         loadFieldCodeToModel();
@@ -145,6 +157,9 @@ function loadUpdateModal(fieldCode) {
       url: 'http://localhost:8080/greenshadow/field/' + fieldCode,
       type: 'GET',
       dataType: 'json',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
           $('#code_model_field_update').text(data.data.fieldCode);
           $('#name_model_field_update').val(data.data.name);
@@ -192,6 +207,9 @@ $('#btn_update_field').on('click', function() {
       data: formData,
       contentType: false,
       processData: false,
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
           alert("Field updated successfully!");
           $('#name_model_field_update').val('');

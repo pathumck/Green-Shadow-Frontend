@@ -1,11 +1,14 @@
 $(document).ready(function() {
-  loadPreviousLogsTable();
+  //loadPreviousLogsTable();
 });
 
 function loadPreviousLogsTable() {
   $.ajax({
     url: 'http://localhost:8080/greenshadow/log',
     method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const tableBody = $('#tbody_previous_logs');
       tableBody.empty();
@@ -60,6 +63,9 @@ function deletePreviousLogs(logCode) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/log/' + logCode,
       method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         loadPreviousLogsTable();
       },

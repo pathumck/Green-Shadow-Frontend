@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  loadEquipmentIdToModal();
-  loadStaffIdsToEquipmentModal();
-  loadFieldIdsToEquipmentModal();
-  loadEquipmentDetailsTable();
+  // loadEquipmentIdToModal();
+  // loadStaffIdsToEquipmentModal();
+  // loadFieldIdsToEquipmentModal();
+  // loadEquipmentDetailsTable();
 })
 
 function loadEquipmentIdToModal() {
@@ -10,6 +10,9 @@ function loadEquipmentIdToModal() {
     url: 'http://localhost:8080/greenshadow/equipment/newid',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       $("#equipmentId_modal").text(data.data);
     },
@@ -35,6 +38,9 @@ $('#btn_save_equipment').click(function() {
     contentType: 'application/json',
     data: JSON.stringify(equipment),
     processData: false, 
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       loadEquipmentIdToModal();
       loadEquipmentDetailsTable();
@@ -57,6 +63,9 @@ function loadStaffIdsToEquipmentModal() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#staffId_modal_equipment');
       dropDown.empty();
@@ -77,6 +86,9 @@ function loadFieldIdsToEquipmentModal() {
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#fieldCode_modal_equipment');
       dropDown.empty();
@@ -97,6 +109,9 @@ function loadEquipmentDetailsTable() {
     url: 'http://localhost:8080/greenshadow/equipment',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const tableBody = $('#equipment_details_table_body');
       tableBody.empty();
@@ -144,6 +159,9 @@ function deleteEquipment(equipmentId) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/equipment/' + equipmentId,
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         loadEquipmentDetailsTable();
         loadEquipmentIdToModal();
@@ -161,6 +179,9 @@ function loadUpdateEquipmentModal(equipmentId) {
     url: 'http://localhost:8080/greenshadow/equipment/' + equipmentId,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       $('#equipmentId_modal_update').text(data.data.equipmentId); 
       $('#name_modal_equipment_update').val(data.data.name);
@@ -183,6 +204,9 @@ function loadStaffIdToUpdateEquipmentModal(staffId) {
     url: 'http://localhost:8080/greenshadow/staff/' + staffId,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#staffId_modal_equipment_update');
       dropDown.empty()
@@ -199,6 +223,9 @@ function loadStaffIdsToUpdateEquipmentModal() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#staffId_modal_equipment_update');
       dropDown.append(`<option value="" disabled>Select Staff</option>`);
@@ -220,6 +247,9 @@ function loadFieldIdToUpdateEquipmentModal(fieldCode) {
     url: 'http://localhost:8080/greenshadow/field/' + fieldCode,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#fieldCode_modal_equipment_update');
       dropDown.empty()
@@ -236,6 +266,9 @@ function loadFieldIdsToUpdateEquipmentModal() {
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#fieldCode_modal_equipment_update');
       dropDown.append(`<option value="" disabled>Select Field</option>`);
@@ -267,6 +300,9 @@ $('#btn_update_equipment').click(function() {
     data: JSON.stringify(equipment),
     contentType: 'application/json',
     processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       loadEquipmentDetailsTable();
       loadEquipmentIdToModal();

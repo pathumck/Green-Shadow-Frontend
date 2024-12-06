@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  loadLogIdToLabel();
-  loadDateToLabel();
-  setInterval(loadDateToLabel, 1000);
-  selectFieldCodeForCreateLog();
-  selectCropCodeForCreateLog();
-  selectStaffIdForCreateLog();
+  // loadLogIdToLabel();
+  // loadDateToLabel();
+  // setInterval(loadDateToLabel, 1000);
+  // selectFieldCodeForCreateLog();
+  // selectCropCodeForCreateLog();
+  // selectStaffIdForCreateLog();
 });
 
 function loadLogIdToLabel() {
@@ -12,6 +12,9 @@ function loadLogIdToLabel() {
     url: 'http://localhost:8080/greenshadow/log/nextcode',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       $('#lbl_cl_logCode').text(data.data);
     },
@@ -33,6 +36,9 @@ function selectFieldCodeForCreateLog() {
     url: 'http://localhost:8080/greenshadow/field',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_cl_fieldCode');
       dropDown.empty();
@@ -117,6 +123,9 @@ function selectCropCodeForCreateLog() {
     url: 'http://localhost:8080/greenshadow/crop',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_cl_cropCode');
       dropDown.empty();
@@ -205,6 +214,9 @@ function selectStaffIdForCreateLog() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function(data) {
       const dropDown = $('#sel_cl_staffId');
       dropDown.empty();
@@ -321,6 +333,9 @@ $('#btn_cl_create_log').on('click', function() {
       data: formData,
       contentType: false,
       processData: false,
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function(data) {
         alert("Log created successfully.");
         resetLogForm();
@@ -360,4 +375,7 @@ function resetLogForm() {
       $('#img_cl_image').attr('src', '');
       $('#lbl_cl_name').text('');
       $('#lbl_cl_location').text('');
+      $('tbody_cl_fields').empty();
+      $('tbody_cl_crops').empty();
+      $('tbody_cl_staff').empty();
 }

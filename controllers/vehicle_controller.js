@@ -1,13 +1,16 @@
 $(document).ready(function() {
-  loadVehicleIdToModel();
-  loadStaffIdsToVehicleModel();
-  loadVehicleDetailsTable();
+  // loadVehicleIdToModel();
+  // loadStaffIdsToVehicleModel();
+  // loadVehicleDetailsTable();
 });
 
 function loadVehicleIdToModel() {
   $.ajax({
     url: 'http://localhost:8080/greenshadow/vehicle/newcode',
     type: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       $('#code_modal_vehicle').text(data.data);
     }
@@ -31,6 +34,9 @@ $('#btn-save-vehicle').click(function () {
     data: JSON.stringify(vehicle),
     contentType: 'application/json',
     processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       $('#modal_vehicle').modal('hide');
       loadVehicleIdToModel();
@@ -47,6 +53,9 @@ function loadStaffIdsToVehicleModel() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       const dropDown = $('#staffId_modal_vehicle');
       dropDown.empty();
@@ -76,6 +85,9 @@ $('#btn_save_vehicle').click(function () {
     data: JSON.stringify(vehicle),
     contentType: 'application/json',
     processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       loadVehicleIdToModel();
       $('#vehicleNumber_modal_vehicle').val('');
@@ -99,6 +111,9 @@ function loadVehicleDetailsTable() {
     url: 'http://localhost:8080/greenshadow/vehicle',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       const tableBody = $('#vehicle_details_table_body');
       tableBody.empty();
@@ -144,6 +159,9 @@ function deleteVehicle(vehicleCode) {
     $.ajax({
       url: 'http://localhost:8080/greenshadow/vehicle/' + vehicleCode,
       type: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
       success: function (data) {
         loadVehicleDetailsTable();
         loadVehicleIdToModel();
@@ -162,6 +180,9 @@ function loadUpdateVehicleModal(vehicleCode) {
     url: 'http://localhost:8080/greenshadow/vehicle/' + vehicleCode,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       $('#code_modal_vehicle_update').text(data.data.vehicleCode);
       $('#vehicleNumber_modal_vehicle_update').val(data.data.vehicleNumber);
@@ -196,6 +217,9 @@ $('#btn_update_vehicle').click(function () {
     data: JSON.stringify(vehicle),  
     contentType: 'application/json',
     processData: false,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       loadVehicleDetailsTable();
       loadVehicleIdToModel();
@@ -213,6 +237,9 @@ function loadStaffIdToUpdateVehicleModal(staffId) {
     url: 'http://localhost:8080/greenshadow/staff/' + staffId,
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       const dropDown = $('#staffId_modal_vehicle_update');
       dropDown.empty();
@@ -229,6 +256,9 @@ function loadStaffIdsToVehicleUpdateModal() {
     url: 'http://localhost:8080/greenshadow/staff',
     type: 'GET',
     dataType: 'json',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
     success: function (data) {
       const dropDown = $('#staffId_modal_vehicle_update');
       dropDown.append(`<option value=""disabled>Select Staff</option>`);
