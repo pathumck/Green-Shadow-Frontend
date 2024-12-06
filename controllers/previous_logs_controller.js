@@ -35,7 +35,7 @@ function loadPreviousLogsTable() {
             <td><select class="form-select prevent-select">${fieldCodesOptions}</select></td>
             <td><select class="form-select prevent-select">${cropCodesOptions}</select></td>
             <td><select class="form-select prevent-select">${staffIdsOptions}</select></td>
-            <td><img src="${imageSrc}" alt="Image" width="70" height="70"></td>
+            <td><img src="${imageSrc}" alt="Image" width="70"></td>
             <td>${data.details}</td>
             <td><button type="button" class="btn btn-danger btn-delete-previous-logs" data-log-code="${data.logCode}">Delete</button></td>
           </tr>

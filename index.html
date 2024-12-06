@@ -11,10 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style/login.css">
 </head>
 <body>
+    
     <!-- Side Bar -->
-     <div class="sidebar">
+     <div class="sidebar" id="slidebar">
         <nav class="nav flex-column">
             <!-- Dashboard -->
             <a id="nav_dashboard" href="#" class="nav-link" style="padding-top: 4px;">
@@ -140,7 +142,39 @@
                 </span>
             </a>
         </nav>
-     </div>
+     </div> 
+     
+     <!-- Login Section -->
+<section id="login" >
+
+    <div id="loginForm">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="/icons/green shadow.png" alt="green_shadow_image" width="300" height="100" class="img-fluid img-logo">
+                <form form action="assets/pages/home.html" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label label-color">Username</label>
+                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label label-color">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+
+                    <div id="btnWrap">
+                        <div id="btnLogin">
+                            <button type="button" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 
      <!-- Main -->
       <main class="main-content">

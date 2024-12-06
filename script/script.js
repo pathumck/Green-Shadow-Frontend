@@ -1,13 +1,17 @@
-$('#sec_vehicle').hide();
-$('#sec_equipment').hide();
-$('#sec_crop').hide();
-$('#sec_staff').hide();
-$('#sec_field_crops').hide();
-$('#sec_field_staff').hide();
-$('#sec_log').hide();
-$('#sec_field').hide();
-$('#sec_previe();
-$('#sec_dashboard').show();
+$(document).ready(function() {
+  $('#slidebar').hide();
+  $('#login').show();
+  $('#sec_vehicle').hide();
+  $('#sec_equipment').hide();
+  $('#sec_crop').hide();
+  $('#sec_staff').hide();
+  $('#sec_field_crops').hide();
+  $('#sec_field_staff').hide();
+  $('#sec_log').hide();
+  $('#sec_field').hide();
+  $('#sec_previous_logs').hide();
+  $('#sec_dashboard').show();
+})
 
 $('#nav_field_details').on('click', function() {
   $('#sec_vehicle').hide();
@@ -142,4 +146,20 @@ $('#nav_dashboard').on('click', function() {
 $(".nav-link").on("click",function() {
   $(".nav-link").removeClass("active");
   $(this).addClass("active");
+});
+
+$('#btnLogin').on('click', function() {
+  $('#login').hide();
+  $('#sec_vehicle').hide();
+  $('#sec_equipment').hide();
+  $('#sec_crop').hide();
+  $('#sec_staff').hide();
+  $('#sec_field_crops').hide();
+  $('#sec_field_staff').hide();
+  $('#sec_log').hide();
+  $('#sec_field').hide();
+  $('#sec_previous_logs').hide();
+  $('#sec_dashboard').show();
+  $('#slidebar').show();
+  $("body").css("overflow", "auto");
 });
