@@ -10,13 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Side Bar -->
      <div class="sidebar">
         <nav class="nav flex-column">
             <!-- Dashboard -->
-            <a href="#" class="nav-link" style="padding-top: 4px;">
+            <a id="nav_dashboard" href="#" class="nav-link" style="padding-top: 4px;">
                 <span class="icon">
                     <i>
                         <img src="/icons/dashboard.png" alt="dashboard_image" width="20" height="20">
@@ -141,9 +142,93 @@
         </nav>
      </div>
 
-
      <!-- Main -->
       <main class="main-content">
+        <!-- Dashboard -->
+        <section id="sec_dashboard">
+            <div class="container">
+                <div class="wrapper">
+                    <main class="content px-3 py-4 dashboard-section">
+                        <div class="container-fluid">
+                            <div class="mb-3">                               
+                                <div class="row">
+                                    <div class="col">
+                                        <h3 class="fw-bold fs-4 mb-3">Dashboard</h3>
+                                    </div>
+                                    <div class="col">
+                                        <img src="/icons/green shadow.png" alt="green_shadow_image" class="img-fluid img-logo">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-12 col-md-4 ">
+                                        <div class="card border-0">
+                                            <div class="card-body py-4">
+                                                <h5 class="mb-2 fw-bold">
+                                                    Field Count
+                                                </h5>
+                                                <p class="mb-2 fw-bold">
+                                                    10
+                                                </p>
+                                                <div class="mb-0">
+                                                    <span class=" fw-bold">
+                                                        All over the island
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4 ">
+                                        <div class="card  border-0">
+                                            <div class="card-body py-4">
+                                                <h5 class="mb-2 fw-bold">
+                                                    Crop Count
+                                                </h5>
+                                                <p class="mb-2 fw-bold">
+                                                    20
+                                                </p>
+                                                <div class="mb-0">
+                                                    <span class="fw-bold">
+                                                        Varieties across fields
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4 ">
+                                        <div class="card border-0">
+                                            <div class="card-body py-4">
+                                                <h5 class="mb-2 fw-bold">
+                                                    Staff Count
+                                                </h5>
+                                                <p class="mb-2 fw-bold">
+                                                    50
+                                                </p>
+                                                <div class="mb-0">
+                                                    <span class="fw-bold">
+                                                        Involved in process
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold fs-4 my-3">Monthly log count
+                                </h3>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <canvas id="logChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                    </main>
+                </div>        
+            </div>  
+        </section>
 
         <!-- Field Section -->
         <section id="sec_field">
@@ -2064,6 +2149,8 @@
     <script src="controllers/field's_staff_controller.js"></script>
     <script src="/controllers/create_log_controller.js"></script>
     <script src="/controllers/previous_logs_controller.js"></script>
+    <script src="/controllers/dashboard_controller.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 </body>
 </html>
