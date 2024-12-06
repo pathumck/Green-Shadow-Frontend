@@ -190,6 +190,7 @@ $('#nav_users').on('click', function() {
   $('#sec_previous_logs').hide();
   $('#sec_dashboard').hide();
   $('#sec_users').show();
+  loadUsersTable();
 });
 
 $(".nav-link").on("click",function() {
